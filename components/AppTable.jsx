@@ -1,6 +1,13 @@
 import React from "react";
+import { userService } from "../services/user.service";
 
-const AppTable = () => {
+const AppTable = ({props}) => {
+  var data = userService.getApps(props.cookie);
+  try{
+    for(var i = 0; i < data.length; i++){
+      console.log(data[i]);
+    }
+  }catch{}
   return (
     <div className="max-w-screen-xl  mx-auto w-full bg-transparent px-4 overflow-x-scroll">
       <table className=" overflow-x-auto  w-full bg-white">

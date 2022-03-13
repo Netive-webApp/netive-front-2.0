@@ -2,8 +2,22 @@ import React from "react";
 import Link from "next/link";
 import StatCard from "./StatCard";
 import AppTable from "./AppTable";
+import { userService } from "../services/user.service";
 
-const AdminHeader = () => {
+
+const AdminHeader = ({props}) => {
+  var [build, failed, ready, pending] = [0, 0, 0, 0];
+  var data = userService.getDashboardData(props.cookie);
+  try{
+    build = data[0]['build'];
+    failed = data[0]['failed'];
+    ready = data[0]['ready'];
+    pending = data[0]['pending'];
+  } catch{
+    //PASS
+  }
+  
+  
   return (
     <>
       <div className="bg-blueGray pb-48 ">
@@ -22,7 +36,7 @@ const AdminHeader = () => {
             <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
               <StatCard
                 statSubtitle="TOTAL BUILDS"
-                statTitle="8"
+                statTitle={build}
                 statIconName="far fa-chart-bar"
                 statIconColor="bg-pink-500"
               />
@@ -30,8 +44,8 @@ const AdminHeader = () => {
 
             <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
               <StatCard
-                statSubtitle="TOTAL BUILDS"
-                statTitle="8"
+                statSubtitle="Ready"
+                statTitle={ready}
                 statIconName="far fa-chart-bar"
                 statIconColor="bg-pink-500"
               />
@@ -39,8 +53,8 @@ const AdminHeader = () => {
 
             <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
               <StatCard
-                statSubtitle="TOTAL BUILDS"
-                statTitle="8"
+                statSubtitle="Failed"
+                statTitle={failed}
                 statIconName="far fa-chart-bar"
                 statIconColor="bg-pink-500"
               />
@@ -48,8 +62,8 @@ const AdminHeader = () => {
 
             <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
               <StatCard
-                statSubtitle="TOTAL BUILDS"
-                statTitle="8"
+                statSubtitle="Pending"
+                statTitle={pending}
                 statIconName="far fa-chart-bar"
                 statIconColor="bg-pink-500"
               />

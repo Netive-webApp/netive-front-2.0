@@ -1,7 +1,36 @@
 import React from 'react'
 import Link from "next/link";
+import { userService } from '../services/user.service';
+import { useRouter } from 'next/dist/client/router';
+import { createRef } from 'react/cjs/react.development';
+import { useAlert } from 'react-alert'
 
 const Login = () => {
+
+  const alert = useAlert()
+  const google_login_url = "https://netive-backend.herokuapp.com/accounts/google/login";
+  const router = useRouter();
+
+  var username = createRef();
+  var password = createRef();
+
+
+  function onSubmit() {        
+      return userService.login(username.current.value, password.current.value)
+          .then(() => {
+            console.log(username.current.value);
+              // get return url from query parameters or default to '/'
+              const returnUrl = '';
+              alert.success('Logged in!');
+              router.push(returnUrl);
+          })
+          .catch((error) => alert.error("Bad/Wrong Credentials!"));
+          
+          
+  }
+
+
+
   return (
     <>
       <div className="container mx-auto px-4 h-full">
@@ -15,8 +44,8 @@ const Login = () => {
                   </h6>
                 </div>
                 <div className="btn-wrapper text-center">
-                  <a href=""
-                  // {google_login_url}
+                  <a href=
+                  {google_login_url}
                     className="bg-white active:bg-blueGray-50 text-blueGray-700  px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
                     type="button"
                   >
@@ -44,8 +73,8 @@ const Login = () => {
                       type="text"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Username"
-                      // name="username"
-                      // ref={username}
+                      name="username"
+                      ref={username}
                     />
                     
                   </div>
@@ -62,8 +91,8 @@ const Login = () => {
                       type="password"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Password"
-                      // name="password"
-                      // ref={password}
+                      name="password"
+                      ref={password}
                     />
                     
                   </div>
@@ -82,10 +111,10 @@ const Login = () => {
 
                   <div className="text-center mt-6">
                     <button
-                      className="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
+                      className="bg-black text-white"
                       // disabled={formState.isSubmitting}
-                      type="submit"
-                      // onClick={onSubmit}
+                      type="button"
+                      onClick={onSubmit}
                     >
                       Sign In
                     </button>

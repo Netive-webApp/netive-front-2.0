@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { userService } from "../services/user.service";
 
 const Navbar = () => {
   return (
@@ -10,7 +11,7 @@ const Navbar = () => {
         </div>
 
         <div className="mr-4">
-        <button className="px-4 py-2 bg-blueGray text-white">
+        <button className="px-4 py-2 bg-blueGray text-white" onClick={userService.logout}>
           LOG OUT
         </button>
         </div>
