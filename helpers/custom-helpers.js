@@ -3,7 +3,8 @@
 
 export const customHelpers = {
   checkAuth,
-  fixAuth
+  fixAuth,
+  verifyForm
 }
 function checkAuth(router, destination, authStatus = true) {  //authStatus = true means user is logged in
   var cookie = '';
@@ -40,5 +41,20 @@ function checkAuth(router, destination, authStatus = true) {  //authStatus = tru
 function fixAuth(value){
   try{localStorage.removeItem(value);}
   catch{console.log("fixAuth: error removing item");}
+
+}
+
+function verifyForm(data){
+  for (const [key, value] of Object.entries(data)) {
+    
+    if (value== '' || value == null){
+      return false;
+    } else {
+      //pass
+    }
+  }
+  return true;
+  
+
 
 }

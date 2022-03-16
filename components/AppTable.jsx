@@ -4,14 +4,6 @@ import { userService } from "../services/user.service";
 
 const AppTable = ({ props }) => {
   var data = userService.getApps(props.cookie);
-  try {
-    for (var i = 0; i < data.length; i++) {
-      console.log(data[i]);
-    }
-  } catch {}
-
-  
-
   return (
     <div className="max-w-screen-xl  mx-auto w-full">
       <div className="  mx-4 overflow-x-hidden bg-white rounded-md">

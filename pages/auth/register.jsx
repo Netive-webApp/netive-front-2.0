@@ -1,7 +1,42 @@
 import React from "react";
 import Link from "next/link";
+import {createRef} from "react";
+import { userService } from "../../services/user.service";
+import { useAlert } from "react-alert";
+import { useRouter } from "next/router";
+import {customHelpers} from "../../helpers/custom-helpers";
 
-const register = () => {
+
+export default function register(props) {
+  const router = useRouter();
+  const alert = useAlert();
+  var username = createRef();
+  var email = createRef();
+  var password = createRef();
+  var password2 = createRef();
+  
+
+  const registerUser = event => {
+    event.preventDefault();
+    var data = {
+      username: username.current.value,
+      email: email.current.value,
+      password: password.current.value,
+      password2: password2.current.value
+    }
+    return userService.register(data).then(() => {
+      alert.success("Registered! Please Login!");
+      userService.login(username.current.value, password.current.value).then(() => {
+        const returnUrl = "";
+        alert.success("Logged in!");
+        router.push(returnUrl);
+      }).catch((error) => alert.error("Bad/Wrong Credentials While Loggin In!"));
+    }).catch((error) =>alert.error("Bad/Wrong Credentials! While Registering!"));
+    
+    
+    
+    
+  }
   return (
     <>
       <div className="container mx-auto px-4 h-full mt-16">
@@ -31,8 +66,8 @@ const register = () => {
                 <div className="text-blueGray-400 text-center mb-3 font-bold">
                   <small></small>
                 </div>
-                <form onSubmit="">
-                  {/* {handleSubmit(onSubmit)} */}
+                <form onSubmit={registerUser}>
+                  
                   <div className="relative w-full mb-3">
                     <label
                       className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
@@ -45,8 +80,9 @@ const register = () => {
                       type="text"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Username"
-                      // name="username"
-                      // ref={username}
+                      name="username"
+                      required
+                      ref={username}
                     />
                   </div>
                   <div className="relative w-full mb-3">
@@ -61,8 +97,9 @@ const register = () => {
                       type="email"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="your@email.com"
-                      // name="username"
-                      // ref={username}
+                      name="email"
+                      required
+                      ref={email}
                     />
                   </div>
 
@@ -78,8 +115,26 @@ const register = () => {
                       type="password"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Password"
-                      // name="password"
-                      // ref={password}
+                      name="password"
+                      required
+                      ref={password}
+                    />
+                  </div>
+                  <div className="relative w-full mb-3">
+                    <label
+                      className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                      htmlFor="grid-password"
+                    >
+                      Re-Password
+                    </label>
+
+                    <input
+                      type="password"
+                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      placeholder="Password"
+                      required
+                      name="password2"
+                      ref={password2}
                     />
                   </div>
 
@@ -87,8 +142,8 @@ const register = () => {
                     <button
                       className="bg-black text-white px-3 py-2 w-full"
                       // disabled={formState.isSubmitting}
-                      type="button"
-                      // onClick={onSubmit}
+                      type="submit"
+                      
                     >
                       CONTINUE
                     </button>
@@ -104,4 +159,4 @@ const register = () => {
   );
 };
 
-export default register;
+

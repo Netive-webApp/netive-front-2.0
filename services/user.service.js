@@ -170,3 +170,4 @@ function getDashboardData(cookie){
 function _delete(id) {
     return fetchWrapper.delete(`${baseUrl}/${id}`);
 }
+

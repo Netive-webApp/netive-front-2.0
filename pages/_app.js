@@ -10,10 +10,14 @@ import { useState } from "react";
 import userService from "../services/user.service";
 import { customHelpers } from "../helpers/custom-helpers";
 
+
+
+
 import { transitions, positions, Provider as AlertProvider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
 
 const options = {
+  
   // error aler optional configuration
   // you can also just use 'bottom center'
   position: positions.BOTTOM_CENTER,
@@ -23,6 +27,7 @@ const options = {
   transition: transitions.SCALE,
 };
 function MyApp({ Component, pageProps }) {
+
   var [isAuthenticated, cookie] = customHelpers.checkAuth(true);
 
   var pageProps = {
@@ -30,21 +35,15 @@ function MyApp({ Component, pageProps }) {
     cookie,
   };
 
+
   return (
     <>
     <Head>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     </Head>
+    
       <AlertProvider template={AlertTemplate} {...options}>
-        {isAuthenticated ? (
-          <>
-            <Component {...pageProps}  />
-          </>
-        ) : (
-          <>
-            <Login />
-          </>
-        )}
+        <Component {...pageProps}  />
       </AlertProvider>
     </>
   );

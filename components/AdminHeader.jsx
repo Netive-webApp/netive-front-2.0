@@ -5,13 +5,13 @@ import AppTable from "./AppTable";
 import { userService } from "../services/user.service";
 
 const AdminHeader = ({ props }) => {
-  var [build, failed, ready, pending] = [0, 0, 0, 0];
+  
   var data = userService.getDashboardData(props.cookie);
   try {
-    build = data[0]["build"];
-    failed = data[0]["failed"];
-    ready = data[0]["ready"];
-    pending = data[0]["pending"];
+    var build = data[0]["build"];
+    var failed = data[0]["failed"];
+    var ready = data[0]["ready"];
+    var pending = data[0]["pending"];
   } catch {
     //PASS
   }

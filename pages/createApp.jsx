@@ -72,6 +72,7 @@ export default function NewAppForm(props) {
       .setAttribute("src", URL.createObjectURL(icon));
   }
   return (
+    
     <>
       <Navbar />
       <AdminHeader props={props} />
