@@ -30,8 +30,14 @@ export default function register(props) {
         const returnUrl = "";
         alert.success("Logged in!");
         router.push(returnUrl);
-      }).catch((error) => alert.error("Bad/Wrong Credentials While Loggin In!"));
-    }).catch((error) =>alert.error("Bad/Wrong Credentials! While Registering!"));
+      }).catch((error) => {
+        alert.error(error);
+        alert.error("Bad/Wrong Credentials While Loggin In!");
+      });
+    }).catch((error) => {
+      alert.error("Bad/Wrong Credentials! While Registering!");
+      alert.error(error);
+    });
     
     
     
