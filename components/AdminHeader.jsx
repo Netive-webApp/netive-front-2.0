@@ -4,32 +4,34 @@ import StatCard from "./StatCard";
 import AppTable from "./AppTable";
 import { userService } from "../services/user.service";
 
-
-const AdminHeader = ({props}) => {
+const AdminHeader = ({ props }) => {
   var [build, failed, ready, pending] = [0, 0, 0, 0];
   var data = userService.getDashboardData(props.cookie);
-  try{
-    build = data[0]['build'];
-    failed = data[0]['failed'];
-    ready = data[0]['ready'];
-    pending = data[0]['pending'];
-  } catch{
+  try {
+    build = data[0]["build"];
+    failed = data[0]["failed"];
+    ready = data[0]["ready"];
+    pending = data[0]["pending"];
+  } catch {
     //PASS
   }
-  
-  
+
   return (
     <>
-      <div className="bg-blueGray pb-48 ">
+      <div className="bg-blueGray pb-48 " style={{marginBottom: "-8rem"}}>
         <div className="max-w-screen-xl mx-auto">
           <div className="pt-14">
-            <button className="py-3 px-4 bg-white text-blueGray font-bold ml-4 inline">
-              <Link href="/createApp"> 
-              
-              CREATE NEW APP
-              
-              </Link>
-            </button>
+            <Link href="/createApp" className="m-2">
+              <button className="py-2 px-3 bg-white text-blueGray font-bold ml-4 inline rounded-sm text-sm ">
+                CREATE NEW APP
+              </button>
+            </Link>
+      
+            <Link href="/">
+              <button className="py-2 px-3 bg-white text-blueGray font-bold ml-4 inline rounded-sm text-sm">
+                DASHBOARD
+              </button>
+            </Link>
           </div>
 
           <div className="flex flex-wrap mt-14 justify-between">
@@ -37,8 +39,8 @@ const AdminHeader = ({props}) => {
               <StatCard
                 statSubtitle="TOTAL BUILDS"
                 statTitle={build}
-                statIconName="far fa-chart-bar"
-                statIconColor="bg-pink-500"
+                statIconName="fa-solid fa-wrench"
+                statIconColor="bg-blue-500"
               />
             </div>
 
@@ -46,8 +48,8 @@ const AdminHeader = ({props}) => {
               <StatCard
                 statSubtitle="Ready"
                 statTitle={ready}
-                statIconName="far fa-chart-bar"
-                statIconColor="bg-pink-500"
+                statIconName="fa-solid fa-circle-check"
+                statIconColor="bg-green-500"
               />
             </div>
 
@@ -55,8 +57,8 @@ const AdminHeader = ({props}) => {
               <StatCard
                 statSubtitle="Failed"
                 statTitle={failed}
-                statIconName="far fa-chart-bar"
-                statIconColor="bg-pink-500"
+                statIconName="fa-solid fa-circle-exclamation"
+                statIconColor="bg-red-500"
               />
             </div>
 
@@ -64,15 +66,13 @@ const AdminHeader = ({props}) => {
               <StatCard
                 statSubtitle="Pending"
                 statTitle={pending}
-                statIconName="far fa-chart-bar"
-                statIconColor="bg-pink-500"
+                statIconName="fa-solid fa-hourglass"
+                statIconColor="bg-yellow-500"
               />
             </div>
           </div>
         </div>
       </div>
-
-      
     </>
   );
 };

@@ -1,35 +1,81 @@
 import React from "react";
+import { useEffect } from "react/cjs/react.production.min";
 import { userService } from "../services/user.service";
 
-const AppTable = ({props}) => {
+const AppTable = ({ props }) => {
   var data = userService.getApps(props.cookie);
-  try{
-    for(var i = 0; i < data.length; i++){
+  try {
+    for (var i = 0; i < data.length; i++) {
       console.log(data[i]);
     }
-  }catch{}
+  } catch {}
+
+  
+
   return (
-    <div className="max-w-screen-xl  mx-auto w-full bg-transparent px-4 overflow-x-scroll">
-      <table className=" overflow-x-auto  w-full bg-white">
-        <tr>
-          <th className="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">INDEX</th>
-          <th className="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">APP NAME</th>
-          <th className="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">CREATED AT</th>
-          <th className="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">STATUS</th>
-          <th className="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">PLATEFORM</th>
-        </tr>
- {/* use list renderinf here */}
-        <tr>
-          <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">1</td>
-          <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center"> <img src={''}className="h-12 w-12 bg-white rounded-full border"alt="..."></img>{" "}
-          <span className={"ml-3 font-bold"}>appName</span>
-          </td>
-          <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">30/05/2002 11:55 AM</td>
-          <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">DOWNLOAD</td>
-          <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">ANDROID/IOS</td>
-        </tr>
-        
-      </table>
+    <div className="max-w-screen-xl  mx-auto w-full">
+      <div className="  mx-4 overflow-x-hidden bg-white rounded-md">
+        <div className="overflow-x-scroll">
+          <table className=" overflow-x-auto  w-full bg-white">
+            <thead>
+            <tr>
+              <th className="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                INDEX
+              </th>
+              <th className="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                APP NAME
+              </th>
+              <th className="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                CREATED AT
+              </th>
+              <th className="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                STATUS
+              </th>
+              <th className="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                PLATEFORM
+              </th>
+            </tr>
+            </thead>
+            {/* use list renderinf here */}
+
+            <tbody>
+              {data?.map((app, index) => (
+                <tr key={app.id}>
+                  <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs  font-bold whitespace-nowrap p-4">
+                    {index + 1}
+                  </td>
+                  <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
+                    {" "}
+                    <img
+                      src={app.icon}
+                      className="h-12 w-12 bg-white rounded-full border"
+                      alt="..."
+                    ></img>{" "}
+                    <span className={"ml-3 font-bold"}>{app.appName}</span>
+                  </td>
+                  <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                    {app.created.slice(0,19)}
+                  </td>
+                  <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 font-bold">
+                   {app.status=="ready" ? (
+                      <>
+                      <a href={app.appZip} download>download</a>
+                      </>
+                   ) : (
+                    app.status.toUpperCase()
+                   )}
+                 
+                   
+                  </td>
+                  <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                    {app.platform.toUpperCase()}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 };

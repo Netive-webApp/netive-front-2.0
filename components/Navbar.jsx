@@ -4,7 +4,7 @@ import { userService } from "../services/user.service";
 
 const Navbar = () => {
   return (
-    < div className="shadow">
+    < div className="shadow bg-white">
       <div className="flex flex-row justify-between items-center max-w-screen-xl mx-auto ">
         <div className="ml-4">
           <Image src={`/logo.png`} width={70} height={70}  />
