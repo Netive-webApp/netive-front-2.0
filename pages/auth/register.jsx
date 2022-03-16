@@ -35,8 +35,9 @@ export default function register(props) {
         alert.error("Bad/Wrong Credentials While Loggin In!");
       });
     }).catch((error) => {
-      alert.error("Bad/Wrong Credentials! While Registering!");
+      console.log(error);
       alert.error(error);
+      alert.error("Bad/Wrong Credentials! While Registering!");
     });
     
     
