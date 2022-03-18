@@ -21,3 +21,11 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.downloadButton{
+  padding: 10px;
+
+}
+.downloadButton:hover{
+  transform: scaleX(2.1);
+}

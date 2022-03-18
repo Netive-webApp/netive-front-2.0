@@ -51,7 +51,12 @@ const AppTable = ({ props }) => {
                   <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 font-bold">
                    {app.status=="ready" ? (
                       <>
-                      <a href={app.appZip} download>download</a>
+                      <a className="py-2 downloadButton font-bold ml-4 inline rounded-sm text-sm"href={app.appZip} download>
+                      
+                      Ready
+                      <span className="px-2"><i class="fa-solid fa-download"></i></span>
+                      
+                      </a>
                       </>
                    ) : (
                     app.status.toUpperCase()
@@ -59,8 +64,9 @@ const AppTable = ({ props }) => {
                  
                    
                   </td>
-                  <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                  <td className="border-t-0 px-6 align-middle font-bold border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                     {app.platform.toUpperCase()}
+                    <span className="px-2"><i class="fa-brands fa-android"></i></span>
                   </td>
                 </tr>
               ))}

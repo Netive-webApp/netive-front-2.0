@@ -9,6 +9,7 @@ import AdminHeader from "../components/AdminHeader";
 import Navbar from "../components/Navbar";
 export default function NewAppForm(props) {
   const router = useRouter();
+  
   const [isAuthenticated, cookie] = customHelpers.checkAuth(router, "/", false);
 
   var appName = createRef();
@@ -28,8 +29,10 @@ export default function NewAppForm(props) {
   var keystorePassword = createRef();
   var keyAlias = createRef();
   var keyPassword = createRef();
+  var submitting = false;
 
-  function onSubmit() {
+  const onSubmit = event => {
+    submitting = true;
     let form_data = new FormData();
     form_data.append("image", document.getElementById("icon").files[0]);
     form_data.append("appName", appName.current.value);
@@ -77,10 +80,27 @@ export default function NewAppForm(props) {
       <Navbar />
       <AdminHeader props={props} />
 
-      <div className="max-w-screen-xl  mx-auto w-full">
+      <div className="max-w-screen-xl  mx-auto w-full" style={{display:submitting ? "block" : "none"}}>
+        <div className="mx-4 bg-white font-bold shadow-md p-8 rounded-md text-center">
+          <div className="animate-bounce ">
+            <span className="px-2 animate-pulse">
+            <i class="fa-solid fa-tower-broadcast"></i>
+            </span>
+            Processing...
+            </div>
+        </div>
+      </div>
+      <div className="max-w-screen-xl  mx-auto w-full" style={{display:submitting?"none" : "block"}}>
         <div className="mx-4 bg-white shadow-md p-8 rounded-md">
-          <form className="">
+        <small className="text-bold font-bold pt-8 pb-8">
+                    <span class="rounded-full bg-indigo-500 uppercase px-2 py-1 font-white text-white text-xs font-bold mr-3">Note</span>
+                    All Fields Are Required
+                  </small>
+          <form className="mt-8" onSubmit={onSubmit}>
             <h1 className="block uppercase text-blueGray text-lg font-bold mb-2">
+              <span className="px-2">
+                <i class="fa-solid fa-file-lines"></i>
+              </span>
               Basic Information
             </h1>
             <div className="grid py-4 mt-8 mb-8 sm:grid-cols-1 md:grid-cols-2">
@@ -92,10 +112,12 @@ export default function NewAppForm(props) {
                   App Name
                 </label>
                 <input
+                  tooltip="some"
                   type="text"
                   className=" customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="My Cool App"
                   required
+                  pattern="^\S+$"
                   ref={appName}
                 />
               </div>
@@ -131,11 +153,13 @@ export default function NewAppForm(props) {
                     ref={icon}
                     required
                   />
-                  <small>
-                    Note: Please Make Sure it is a PNG file and dimensions are
+                  
+                </div>
+                <small className="text-bold font-bold pt-8">
+                    <span class="rounded-full bg-indigo-500 uppercase px-2 py-1 font-white text-white text-xs font-bold mr-3">Note</span>
+                    Please Make Sure it is a PNG file and dimensions are
                     rectangular, eg. 512x512
                   </small>
-                </div>
                 <div className="app-icon-holder">
                   <img className="app-icon-display" id="icon_prev" required />
                 </div>
@@ -152,6 +176,7 @@ export default function NewAppForm(props) {
                   type="text"
                   className="customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="com.mycoolapp.app"
+                  required
                   ref={package_name}
                 />
               </div>
@@ -159,7 +184,10 @@ export default function NewAppForm(props) {
             <hr className=" border-b-1 border-blueGray-300 mt-8 mb-8" />
 
             <h1 className="block uppercase text-blueGray text-lg font-bold mb-2">
-              Color Scheme
+              
+              <span className="px-2">
+              <i class="fa-solid fa-droplet"></i>
+              </span>Color Scheme
             </h1>
 
             <div className="grid grid-cols-1 md:grid-cols-2 sm-gr py-4 mt-8 mb-8 ">
@@ -173,7 +201,7 @@ export default function NewAppForm(props) {
                 <input
                   type="color"
                   className="rounded w-full ease-linear transition-all duration-150"
-                  // required
+                  required
                   ref={primaryColor}
                 />
               </div>
@@ -187,7 +215,7 @@ export default function NewAppForm(props) {
                 <input
                   type="color"
                   className="rounded w-full ease-linear transition-all duration-150"
-                  // required
+                  required
                   ref={primaryColorDark}
                 />
               </div>
@@ -201,19 +229,29 @@ export default function NewAppForm(props) {
                 <input
                   type="color"
                   className="rounded w-full ease-linear transition-all duration-150"
-                  // required
+                  required
                   ref={colorAccent}
                 />
               </div>
             </div>
             <hr className="mt-6 border-b-1 border-blueGray-300 mb-8" />
             <h1 className="block uppercase text-blueGray text-lg font-bold mb-8">
-              Keystore Information
+              
+              
+              <span className="px-2">
+              <i class="fa-solid fa-key"></i>
+              </span>Keystore Information
             </h1>
-            <small>
-              Note: Currently we only support creating new keystore per app,
+
+
+            
+            <small className="text-bold font-bold">
+            <span class="rounded-full bg-indigo-500 uppercase px-2 py-1 font-white text-white text-xs font-bold mr-3">Note</span>
+              Currently we only support creating new keystore per app,
               later we'll support premade keystores
             </small>
+
+            
             <div className="grid py-4 mt-8 mb-8 sm:grid-cols-1 md:grid-cols-2">
               <div className="relative w-full my-5 px-2">
                 <label
@@ -258,6 +296,7 @@ export default function NewAppForm(props) {
                   type="text"
                   className="customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="Unit"
+                  required
                   ref={OrganizationUnit}
                 />
               </div>
@@ -273,6 +312,7 @@ export default function NewAppForm(props) {
                   type="text"
                   className="customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="My Company"
+                  required
                   ref={Organization}
                 />
               </div>
@@ -289,6 +329,7 @@ export default function NewAppForm(props) {
                   type="text"
                   className="customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="City"
+                  required
                   ref={City}
                 />
               </div>
@@ -303,6 +344,7 @@ export default function NewAppForm(props) {
                   type="text"
                   className="customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="State"
+                  required
                   ref={State}
                 />
               </div>
@@ -317,6 +359,9 @@ export default function NewAppForm(props) {
                   type="text"
                   className="customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="eg. US"
+                  minLength={2}
+                  maxLength={2}
+                  required
                   ref={CountryCode}
                 />
               </div>
@@ -331,6 +376,7 @@ export default function NewAppForm(props) {
                   type="text"
                   className="customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="Key Alias"
+                  required
                   ref={keyAlias}
                 />
               </div>
@@ -348,6 +394,7 @@ export default function NewAppForm(props) {
                   type="text"
                   className="customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="Keystore Password"
+                  required
                   ref={keystorePassword}
                 />
               </div>
@@ -362,23 +409,48 @@ export default function NewAppForm(props) {
                   type="text"
                   className="customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="Key Password"
+                  required
                   ref={keyPassword}
                 />
               </div>
-              <small className="col-span-1">
+              
+              
+            </div>
+            <small className="text-bold font-bold">
+              <span class="rounded-full bg-indigo-500 uppercase px-2 py-1 font-white text-white text-xs font-bold mr-3">Note</span>
                 We do not store these credentials, they are only used to
                 generate the keystore Please keep them somewhere safe and
                 secure.
               </small>
-            </div>
 
-            <div>
+           
+
+            <div className="text-center mt-6 grid grid-cols-1 ">
+              <button
+                className="bg-blueGray text-white p-3 text-lg"
+                type="submit"
+              >
+                Create App
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </>
+  );
+}
+
+
+/*
+
+ <div>
               <label className="inline-flex items-center cursor-pointer">
                 <input
                   id="customCheckLogin"
                   type="checkbox"
                   className="form-checkbox customBorder rounded text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150"
                 />
+                
                 <span className="ml-2 text-sm font-semibold text-blueGray">
                   I agree with the{" "}
                   <a
@@ -392,18 +464,6 @@ export default function NewAppForm(props) {
               </label>
             </div>
 
-            <div className="text-center mt-6 grid grid-cols-1 ">
-              <button
-                className="bg-blueGray text-white p-3 text-lg"
-                type="button"
-                onClick={onSubmit}
-              >
-                Create App
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </>
-  );
-}
+*/
+
+
