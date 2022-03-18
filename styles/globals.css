@@ -29,3 +29,8 @@ a {
 .downloadButton:hover{
   transform: scaleX(2.1);
 }
+.app-icon-holder{
+  padding:20px;
+  width: 220px;
+  height: 220px;
+}

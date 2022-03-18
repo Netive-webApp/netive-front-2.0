@@ -7,6 +7,8 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import AdminHeader from "../components/AdminHeader";
 import Navbar from "../components/Navbar";
+import { useAlert } from "react-alert";
+import { useState } from "react";
 
 export default function NewAppForm(props) {
   const router = useRouter();
@@ -30,10 +32,12 @@ export default function NewAppForm(props) {
   var keystorePassword = createRef();
   var keyAlias = createRef();
   var keyPassword = createRef();
-  var submitting = false;
+  var [submitting, setSubmitting] = useState(false);
+  var alert = useAlert();
 
   const onSubmit = event => {
-    submitting = true;
+    event.preventDefault();
+    submitting = setSubmitting(true);
     let form_data = new FormData();
     form_data.append("image", document.getElementById("icon").files[0]);
     form_data.append("appName", appName.current.value);
@@ -61,11 +65,13 @@ export default function NewAppForm(props) {
       )
       .then((res) => {
         console.log(res);
-        alert.show(res);
+        alert.success(res);
+        alert.success("App Creation in Progress!");
         router.push("/");
       })
       .catch((err) => {
-        alert(err);
+        alert.error("Error While Creating App");
+        alert.error(err);
       });
   }
 
@@ -95,7 +101,7 @@ export default function NewAppForm(props) {
         <div className="mx-4 bg-white shadow-md p-8 rounded-md">
         <small className="text-bold font-bold pt-8 pb-8">
                     <span class="rounded-full bg-indigo-500 uppercase px-2 py-1 font-white text-white text-xs font-bold mr-3">Note</span>
-                    All Fields Are Required
+                    All Fields Are Required and no spaces allowed! except for name
                   </small>
           <form className="mt-8" onSubmit={onSubmit}>
             <h1 className="block uppercase text-blueGray text-lg font-bold mb-2">
@@ -134,6 +140,7 @@ export default function NewAppForm(props) {
                   className="customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="http://mycoolapp.com"
                   required
+                  pattern="^\S+$"
                   ref={url}
                 />
               </div>
@@ -161,7 +168,7 @@ export default function NewAppForm(props) {
                     Please Make Sure it is a PNG file and dimensions are
                     rectangular, eg. 512x512
                   </small>
-                <div className="app-icon-holder">
+                <div className="app-icon-holder pt-2">
                   <img className="app-icon-display" id="icon_prev" required />
                 </div>
               </div>
@@ -178,6 +185,7 @@ export default function NewAppForm(props) {
                   className="customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="com.mycoolapp.app"
                   required
+                  pattern="^\S+$"
                   ref={package_name}
                 />
               </div>
@@ -266,6 +274,7 @@ export default function NewAppForm(props) {
                   className="customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="My keystore"
                   required
+                  pattern="^\S+$"
                   ref={keystoreName}
                 />
               </div>
@@ -282,6 +291,7 @@ export default function NewAppForm(props) {
                   className="customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="John Doe"
                   ref={Name}
+
                   required
                 />
               </div>
@@ -314,6 +324,7 @@ export default function NewAppForm(props) {
                   className="customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="My Company"
                   required
+                  pattern="^\S+$"
                   ref={Organization}
                 />
               </div>
@@ -331,6 +342,7 @@ export default function NewAppForm(props) {
                   className="customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="City"
                   required
+                  pattern="^\S+$"
                   ref={City}
                 />
               </div>
@@ -346,6 +358,7 @@ export default function NewAppForm(props) {
                   className="customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="State"
                   required
+                  pattern="^\S+$"
                   ref={State}
                 />
               </div>
@@ -362,6 +375,7 @@ export default function NewAppForm(props) {
                   placeholder="eg. US"
                   minLength={2}
                   maxLength={2}
+                  pattern="^\S+$"
                   required
                   ref={CountryCode}
                 />
@@ -378,6 +392,7 @@ export default function NewAppForm(props) {
                   className="customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="Key Alias"
                   required
+                  pattern="^\S+$"
                   ref={keyAlias}
                 />
               </div>
@@ -396,6 +411,7 @@ export default function NewAppForm(props) {
                   className="customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="Keystore Password"
                   required
+                  pattern="^\S+$"
                   ref={keystorePassword}
                 />
               </div>
@@ -411,6 +427,7 @@ export default function NewAppForm(props) {
                   className="customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="Key Password"
                   required
+                  pattern="^\S+$"
                   ref={keyPassword}
                 />
               </div>
