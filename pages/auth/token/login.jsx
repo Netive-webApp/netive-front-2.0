@@ -1,7 +1,8 @@
-import { useRouter } from 'next/router';
+
 import { userService } from "../../../services/user.service";
 import { customHelpers } from "../../../helpers/custom-helpers";
 import { useAlert } from 'react-alert';
+import { useRouter } from "next/router";
 
 var checkAuth = customHelpers.checkAuth;
 var fixAuth = customHelpers.fixAuth;
@@ -13,8 +14,7 @@ export default function TokenVerification() {
     var [isAuthenticated, cookie] = checkAuth(router, '/admin/dashboard', true); //automatically check if cookie exists and route authStatus matches the condition
     try{
         if (!isAuthenticated){
-        const { asPath, pathname } = useRouter();
-        var token = asPath.split('?')[1].split("=")[0]
+        var token = router.pathname('?')[1].split("=")[0]
 
         try{
             var {data, valid} = userService.validateToken(token)

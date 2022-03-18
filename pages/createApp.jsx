@@ -257,7 +257,7 @@ export default function NewAppForm(props) {
             <small className="text-bold font-bold">
             <span className="rounded-full bg-indigo-500 uppercase px-2 py-1 font-white text-white text-xs font-bold mr-3">Note</span>
               Currently we only support creating new keystore per app,
-              later we'll support premade keystores
+              later we will support premade keystores
             </small>
 
             
