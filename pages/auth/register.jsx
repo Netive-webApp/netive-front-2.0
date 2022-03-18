@@ -25,7 +25,7 @@ export default function register(props) {
       password2: password2.current.value
     }
     return userService.register(data).then(() => {
-      alert.success("Registered! Please Login!");
+      alert.success("Registered! Please Login! ");
       userService.login(username.current.value, password.current.value).then(() => {
         const returnUrl = "";
         alert.success("Logged in!");
