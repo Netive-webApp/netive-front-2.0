@@ -29,9 +29,8 @@ export default function TokenVerification() {
         }
             
 
-    } else{
+    } else {
         if (typeof window != 'undefined'){
-            console.log(err);
             router.push('/');
         }
     }
