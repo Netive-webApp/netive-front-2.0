@@ -7,6 +7,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import AdminHeader from "../components/AdminHeader";
 import Navbar from "../components/Navbar";
+
 export default function NewAppForm(props) {
   const router = useRouter();
   
@@ -112,7 +113,7 @@ export default function NewAppForm(props) {
                   App Name
                 </label>
                 <input
-                  tooltip="some"
+                  
                   type="text"
                   className=" customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="My Cool App"
