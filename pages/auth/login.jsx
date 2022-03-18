@@ -2,12 +2,10 @@ import React from "react";
 import Link from "next/link";
 import Login from "../../components/login";
 
-const register = () => {
+export default function LoginPage(props) {
   return (
     <>
     <Login/>
     </>
   );
 };
-
-export default register;

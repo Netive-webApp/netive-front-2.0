@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import {customHelpers} from "../../helpers/custom-helpers";
 
 
-export default function register(props) {
+export default function Register(props) {
   const router = useRouter();
   const alert = useAlert();
   var username = createRef();
