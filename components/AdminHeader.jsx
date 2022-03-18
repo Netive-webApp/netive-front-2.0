@@ -12,6 +12,7 @@ const AdminHeader = ({ props }) => {
     var failed = data[0]["failed"];
     var ready = data[0]["ready"];
     var pending = data[0]["pending"];
+    var username = data[0]["username"];
   } catch {
     //PASS
   }
@@ -20,7 +21,12 @@ const AdminHeader = ({ props }) => {
     <>
       <div className="bg-blueGray pb-48 " style={{marginBottom: "-8rem"}}>
         <div className="max-w-screen-xl mx-auto">
+            
+          <div className="py-2 text-white font-bold ml-4 inline rounded-sm text-sm">
+                Welcome, {username}!
+          </div>
           <div className="pt-14">
+            
             <Link href="/createApp" className="m-2">
               <button className="py-2 px-3 bg-white text-blueGray font-bold ml-4 inline rounded-sm text-sm ">
                 CREATE NEW APP
@@ -32,6 +38,7 @@ const AdminHeader = ({ props }) => {
                 DASHBOARD
               </button>
             </Link>
+            
           </div>
 
           <div className="flex flex-wrap mt-14 justify-between">
