@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "next/link";
 import { userService } from "../services/user.service";
-import { useRouter } from "next/dist/client/router";
 import { createRef } from "react";
 import { useAlert } from "react-alert";
+import { useRouter } from "next/router";
 
 const Login = () => {
   const alert = useAlert();
@@ -20,9 +20,8 @@ const Login = () => {
       .then(() => {
         console.log(username.current.value);
         // get return url from query parameters or default to '/'
-        const returnUrl = "";
         alert.success("Logged in!");
-        router.push(returnUrl);
+        router.push("/");
       })
       .catch((error) => alert.error("Bad/Wrong Credentials!"));
   }
