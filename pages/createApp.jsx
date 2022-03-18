@@ -91,7 +91,7 @@ export default function NewAppForm(props) {
         <div className="mx-4 bg-white font-bold shadow-md p-8 rounded-md text-center">
           <div className="animate-bounce ">
             <span className="px-2 animate-pulse">
-            <i class="fa-solid fa-tower-broadcast"></i>
+            <i className="fa-solid fa-tower-broadcast"></i>
             </span>
             Processing...
             </div>
@@ -100,13 +100,13 @@ export default function NewAppForm(props) {
       <div className="max-w-screen-xl  mx-auto w-full" style={{display:submitting?"none" : "block"}}>
         <div className="mx-4 bg-white shadow-md p-8 rounded-md">
         <small className="text-bold font-bold pt-8 pb-8">
-                    <span class="rounded-full bg-indigo-500 uppercase px-2 py-1 font-white text-white text-xs font-bold mr-3">Note</span>
+                    <span className="rounded-full bg-indigo-500 uppercase px-2 py-1 font-white text-white text-xs font-bold mr-3">Note</span>
                     All Fields Are Required and no spaces allowed! except for name
                   </small>
           <form className="mt-8" onSubmit={onSubmit}>
             <h1 className="block uppercase text-blueGray text-lg font-bold mb-2">
               <span className="px-2">
-                <i class="fa-solid fa-file-lines"></i>
+                <i className="fa-solid fa-file-lines"></i>
               </span>
               Basic Information
             </h1>
@@ -164,7 +164,7 @@ export default function NewAppForm(props) {
                   
                 </div>
                 <small className="text-bold font-bold pt-8">
-                    <span class="rounded-full bg-indigo-500 uppercase px-2 py-1 font-white text-white text-xs font-bold mr-3">Note</span>
+                    <span className="rounded-full bg-indigo-500 uppercase px-2 py-1 font-white text-white text-xs font-bold mr-3">Note</span>
                     Please Make Sure it is a PNG file and dimensions are
                     rectangular, eg. 512x512
                   </small>
@@ -195,7 +195,7 @@ export default function NewAppForm(props) {
             <h1 className="block uppercase text-blueGray text-lg font-bold mb-2">
               
               <span className="px-2">
-              <i class="fa-solid fa-droplet"></i>
+              <i className="fa-solid fa-droplet"></i>
               </span>Color Scheme
             </h1>
 
@@ -248,14 +248,14 @@ export default function NewAppForm(props) {
               
               
               <span className="px-2">
-              <i class="fa-solid fa-key"></i>
+              <i className="fa-solid fa-key"></i>
               </span>Keystore Information
             </h1>
 
 
             
             <small className="text-bold font-bold">
-            <span class="rounded-full bg-indigo-500 uppercase px-2 py-1 font-white text-white text-xs font-bold mr-3">Note</span>
+            <span className="rounded-full bg-indigo-500 uppercase px-2 py-1 font-white text-white text-xs font-bold mr-3">Note</span>
               Currently we only support creating new keystore per app,
               later we'll support premade keystores
             </small>
@@ -435,7 +435,7 @@ export default function NewAppForm(props) {
               
             </div>
             <small className="text-bold font-bold">
-              <span class="rounded-full bg-indigo-500 uppercase px-2 py-1 font-white text-white text-xs font-bold mr-3">Note</span>
+              <span className="rounded-full bg-indigo-500 uppercase px-2 py-1 font-white text-white text-xs font-bold mr-3">Note</span>
                 We do not store these credentials, they are only used to
                 generate the keystore Please keep them somewhere safe and
                 secure.

@@ -12,7 +12,7 @@ const Navbar = () => {
 
         <div className="mr-4">
         <button className="px-4 py-2 bg-blueGray text-white" onClick={userService.logout}>
-          LOG OUT<span className="px-2"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+          LOG OUT<span className="px-2"><i className="fa-solid fa-arrow-right-from-bracket"></i></span>
         </button>
         </div>
       </div>

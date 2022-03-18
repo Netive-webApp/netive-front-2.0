@@ -54,7 +54,7 @@ const AppTable = ({ props }) => {
                       <a className="py-2 downloadButton font-bold ml-4 inline rounded-sm text-sm"href={app.appZip} download>
                       
                       Ready
-                      <span className="px-2"><i class="fa-solid fa-download"></i></span>
+                      <span className="px-2"><i className="fa-solid fa-download"></i></span>
                       
                       </a>
                       </>
@@ -66,7 +66,7 @@ const AppTable = ({ props }) => {
                   </td>
                   <td className="border-t-0 px-6 align-middle font-bold border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                     {app.platform.toUpperCase()}
-                    <span className="px-2"><i class="fa-brands fa-android"></i></span>
+                    <span className="px-2"><i className="fa-brands fa-android"></i></span>
                   </td>
                 </tr>
               ))}
