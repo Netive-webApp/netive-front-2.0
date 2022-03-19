@@ -7,7 +7,6 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import AdminHeader from "../components/AdminHeader";
 import Navbar from "../components/Navbar";
-import { useAlert } from "react-alert";
 import { useState } from "react";
 
 export default function NewAppForm(props) {
@@ -33,7 +32,6 @@ export default function NewAppForm(props) {
   var keyAlias = createRef();
   var keyPassword = createRef();
   var [submitting, setSubmitting] = useState(false);
-  var alert = useAlert();
 
   const onSubmit = event => {
     event.preventDefault();
@@ -65,13 +63,11 @@ export default function NewAppForm(props) {
       )
       .then((res) => {
         console.log(res);
-        alert.success(res);
-        alert.success("App Creation in Progress!");
         router.push("/");
       })
       .catch((err) => {
-        alert.error("Error While Creating App");
-        alert.error(err);
+        console.log("Erro! Creating App!");
+        console.log(err);
       });
   }
 
