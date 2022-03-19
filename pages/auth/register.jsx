@@ -27,9 +27,9 @@ export default function Register(props) {
     return userService.register(data).then(() => {
       alert.success("Registered! Please Login! ");
       userService.login(username.current.value, password.current.value).then(() => {
-        const returnUrl = "";
         alert.success("Logged in!");
-        router.push(returnUrl);
+        alert.info("Please check your email for verification!");
+        router.push("/");
       }).catch((error) => {
         alert.error(error);
         alert.error("Bad/Wrong Credentials While Loggin In!");

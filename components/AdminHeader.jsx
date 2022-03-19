@@ -2,17 +2,19 @@ import React from "react";
 import Link from "next/link";
 import StatCard from "./StatCard";
 import AppTable from "./AppTable";
-import { userService } from "../services/user.service";
+
 
 const AdminHeader = ({ props }) => {
   
-  var data = userService.getDashboardData(props.cookie);
+  var data = props.data;
+
   try {
     var build = data[0]["build"];
     var failed = data[0]["failed"];
     var ready = data[0]["ready"];
     var pending = data[0]["pending"];
     var username = data[0]["username"];
+    var email_verified = data[0]["email_confirmed"];
   } catch {
     //PASS
   }
@@ -27,11 +29,12 @@ const AdminHeader = ({ props }) => {
           </div>
           <div className="pt-14">
             
+            { email_verified && 
             <Link href="/createApp" className="m-2">
               <button className="py-2 px-3 bg-white text-blueGray font-bold ml-4 inline rounded-sm text-sm ">
                 CREATE NEW APP
               </button>
-            </Link>
+            </Link>}
       
             <Link href="/">
               <button className="py-2 px-3 bg-white text-blueGray font-bold ml-4 inline rounded-sm text-sm">
