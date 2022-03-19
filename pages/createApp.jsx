@@ -11,9 +11,26 @@ import { useState } from "react";
 
 export default function NewAppForm(props) {
   const router = useRouter();
-  
   const [isAuthenticated, cookie] = customHelpers.checkAuth(router, "/", false);
+;
+  if (isAuthenticated){
+    var data = userService.getDashboardData(cookie);
+    console.log(email_verified);
+    
+    try {
+      var email_verified = data[0]['email_confirmed'];
+    } catch {
+      var email_verified = false;
+      //PASS;
+    }
+  }
+  var childProps = {
+    props,
+    data
+  }
 
+
+  //#region declaring form variables
   var appName = createRef();
   var url = createRef();
   var icon = createRef();
@@ -32,6 +49,7 @@ export default function NewAppForm(props) {
   var keyAlias = createRef();
   var keyPassword = createRef();
   var [submitting, setSubmitting] = useState(false);
+  //#endregion
 
   const onSubmit = event => {
     event.preventDefault();
@@ -81,7 +99,7 @@ export default function NewAppForm(props) {
     
     <>
       <Navbar />
-      <AdminHeader props={props} />
+      <AdminHeader props={childProps} />
 
       <div className="max-w-screen-xl  mx-auto w-full" style={{display:submitting ? "block" : "none"}}>
         <div className="mx-4 bg-white font-bold shadow-md p-8 rounded-md text-center">
