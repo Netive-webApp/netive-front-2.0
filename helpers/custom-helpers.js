@@ -23,13 +23,11 @@ function checkAuth(router, destination, authStatus = true) {  //authStatus = tru
     try{
       
       if (typeof window != 'undefined' && !auth){
-        console.log("123")
         router.push(destination);
       }
       
     }
     catch(e){
-
         console.log(e);
     }
   }

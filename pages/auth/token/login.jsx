@@ -11,7 +11,7 @@ var validateToken = userService.validateToken;
 
 export default function TokenVerification() {
     const router = useRouter();
-    var [isAuthenticated, cookie] = checkAuth(router, '/admin/dashboard', true); //automatically check if cookie exists and route authStatus matches the condition
+    var [isAuthenticated, cookie] = checkAuth(router, '/', true); //automatically check if cookie exists and route authStatus matches the condition
     try{
         if (!isAuthenticated){
 
