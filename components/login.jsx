@@ -38,7 +38,7 @@ const Login = () => {
                     Sign in with
                   </h6>
                 </div>
-                <div className="btn-wrapper text-center">
+                {/*<div className="btn-wrapper text-center">
                   <a
                     href={google_login_url}
                     className="bg-white active:bg-blueGray-50 text-blueGray-700  px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
@@ -47,7 +47,7 @@ const Login = () => {
                     <img alt="..." className="w-5 mr-1" src="/google.svg" />
                     Google
                   </a>
-                </div>
+  </div>*/}
                 <hr className="mt-6 border-b-1 border-blueGray-300" />
               </div>
               <div className="flex-auto px-4 lg:px-10 py-10 pt-0">

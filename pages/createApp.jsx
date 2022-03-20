@@ -199,7 +199,7 @@ export default function NewAppForm(props) {
                   className="customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="com.mycoolapp.app"
                   required
-                  pattern="^\S+$"
+                  pattern="^([A-Za-z]{1}[A-Za-z\d_]*\.)+[A-Za-z][A-Za-z\d_]*$"
                   ref={package_name}
                 />
               </div>
