@@ -4,9 +4,11 @@ import { userService } from "../services/user.service";
 import { createRef } from "react";
 import { useAlert } from "react-alert";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 const Login = () => {
   const alert = useAlert();
+  var [submitting, setSubmitting] = useState(false);
   const google_login_url =
     "https://netive-backend.herokuapp.com/accounts/google/login";
   const router = useRouter();
@@ -15,6 +17,7 @@ const Login = () => {
   var password = createRef();
 
   function onSubmit() {
+    setSubmitting(true);
     return userService
       .login(username.current.value, password.current.value)
       .then(() => {
@@ -23,7 +26,7 @@ const Login = () => {
         alert.success("Logged in!");
         router.push("/");
       })
-      .catch((error) => alert.error("Bad/Wrong Credentials!"));
+      .catch((error) => {alert.error("Bad/Wrong Credentials!");setSubmitting(false)});
   }
 
   return (
@@ -93,12 +96,12 @@ const Login = () => {
 
                   <div className="text-center mt-6">
                     <button
-                      className="bg-blueGray text-white w-full"
-                      // disabled={formState.isSubmitting}
+                      className="bg-blueGray pt-2 pb-2 text-white w-full disabled:opacity-50"
+                      disabled={submitting}
                       type="button"
                       onClick={onSubmit}
                     >
-                      Sign In
+                      Log In
                     </button>
                   </div>
                 </form>
