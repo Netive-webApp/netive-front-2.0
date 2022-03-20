@@ -34,3 +34,7 @@ a {
   width: 220px;
   height: 220px;
 }
+
+.registerButton:disabled{
+  background-color: red !important;
+}
