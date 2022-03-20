@@ -114,9 +114,11 @@ export default function NewAppForm(props) {
       <div className="max-w-screen-xl  mx-auto w-full" style={{display:submitting?"none" : "block"}}>
         <div className="mx-4 bg-white shadow-md p-8 rounded-md">
         <small className="text-bold font-bold pt-8 pb-8">
-                    <span className="rounded-full bg-indigo-500 uppercase px-2 py-1 font-white text-white text-xs font-bold mr-3">Note</span>
-                    All Fields Are Required and no spaces allowed! except for name
-                  </small>
+          <span className="rounded-full bg-indigo-500 uppercase px-2 py-1 font-white text-white text-xs font-bold mr-3">Note</span>
+          All Fields Are Required and no spaces allowed! except for name
+          <br></br>
+          Some Fields Are Prepopulated For Testing Purposes, You are adviced to change them
+        </small>
           <form className="mt-8" onSubmit={onSubmit}>
             <h1 className="block uppercase text-blueGray text-lg font-bold mb-2">
               <span className="px-2">
@@ -289,6 +291,7 @@ export default function NewAppForm(props) {
                   placeholder="My keystore"
                   required
                   pattern="^\S+$"
+                  defaultValue={"keystore"}
                   ref={keystoreName}
                 />
               </div>
@@ -321,6 +324,7 @@ export default function NewAppForm(props) {
                   type="text"
                   className="customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="Unit"
+                  defaultValue={"unit"}
                   required
                   ref={OrganizationUnit}
                 />
@@ -337,6 +341,7 @@ export default function NewAppForm(props) {
                   type="text"
                   className="customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="My Company"
+                  defaultValue={"organization"}
                   required
                   pattern="^\S+$"
                   ref={Organization}
@@ -356,6 +361,7 @@ export default function NewAppForm(props) {
                   className="customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="City"
                   required
+                  defaultValue={"city"}
                   pattern="^\S+$"
                   ref={City}
                 />
@@ -371,6 +377,7 @@ export default function NewAppForm(props) {
                   type="text"
                   className="customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="State"
+                  defaultValue={"state"}
                   required
                   pattern="^\S+$"
                   ref={State}
@@ -390,6 +397,7 @@ export default function NewAppForm(props) {
                   minLength={2}
                   maxLength={2}
                   pattern="^\S+$"
+                  defaultValue={"XX"}
                   required
                   ref={CountryCode}
                 />
@@ -405,6 +413,7 @@ export default function NewAppForm(props) {
                   type="text"
                   className="customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="Key Alias"
+                  defaultValue={"alias"}
                   required
                   pattern="^\S+$"
                   ref={keyAlias}
