@@ -106,7 +106,7 @@ const Login = () => {
                   </div>
                 </form>
               </div>
-              <div className="flex flex-wrap ">
+              <div className="text-center">
                 {/* <div className="w-1/2">
                 <a
                   href="#pablo"
@@ -116,7 +116,7 @@ const Login = () => {
                   <small>Forgot password?</small>
                 </a>
                 </div>*/}
-                <div className="w-1/2 text-right">
+                <div className="font-bold underline">
                   <Link href="/auth/register">
                     <a href="#pablo" className="text-blueGray-200">
                       <small>Create new account</small>

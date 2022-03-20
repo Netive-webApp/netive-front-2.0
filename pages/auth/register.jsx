@@ -165,6 +165,13 @@ export default function Register(props) {
                   </div>
                 </form>
               </div>
+              <div className="text-center pb-6 font-bold underline ">
+                  <Link href="/auth/login">
+                    <a href="#pablo" className="text-blueGray-200">
+                      <small>Or Log in</small>
+                    </a>
+                  </Link>
+                </div>
             </div>
           </div>
         </div>
