@@ -16,17 +16,17 @@ const Login = () => {
   var username = createRef();
   var password = createRef();
 
-  function onSubmit() {
+  const onSubmit = event => {
+    event.preventDefault();
     setSubmitting(true);
     return userService
       .login(username.current.value, password.current.value)
       .then(() => {
-        console.log(username.current.value);
         // get return url from query parameters or default to '/'
         alert.success("Logged in!");
         router.push("/");
-      })
-      .catch((error) => {alert.error("Bad/Wrong Credentials!");setSubmitting(false)});
+      }).catch((error) => {alert.error("Bad/Wrong Credentials!");setSubmitting(false);console.log(error)});
+      
   }
 
   return (
