@@ -98,6 +98,11 @@ export default function NewAppForm(props) {
   return (
     
     <>
+    
+        <Head>
+        <title>Create App - Netive</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <Navbar />
       <AdminHeader props={childProps} />
 
