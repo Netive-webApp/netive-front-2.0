@@ -29,18 +29,17 @@ export default function Register(props) {
     }
     return userService.register(data).then(() => {
       alert.success("Registered! Please Login! ");
-      userService.login(username.current.value, password.current.value).then(() => {
+      userService.login(data.username, data.password).then(() => {
         alert.success("Logged in!");
         alert.info("Please check your email for verification!");
         router.push("/");
       }).catch((error) => {
-        setSubmitting(false);
-        alert.error(error);
+        console.log("failed loggin in after register");
+        router.push("/auth/login");
         alert.error("Bad/Wrong Credentials While Loggin In!");
       });
     }).catch((error) => {
       console.log(error);
-      alert.error(error);
       setSubmitting(false);
       alert.error("Bad/Wrong Credentials! While Registering!");
     });
