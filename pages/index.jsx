@@ -35,6 +35,11 @@ export default function Home(props) {
     <div className="">
      
         <>
+         <Head>
+          <title>Netive-convert your website into netive mobile app</title>
+          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+         </Head>
+    
           <Navbar />
           <AdminHeader props={childProps}/>
           {email_verified &&
