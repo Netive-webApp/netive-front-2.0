@@ -34,8 +34,8 @@ export default function Register(props) {
         alert.info("Please check your email for verification!");
         router.push("/");
       }).catch((error) => {
-        console.log("failed loggin in after register");
-        router.push("/auth/login");
+        console.log(error);
+        setSubmitting(false);
         alert.error("Bad/Wrong Credentials While Loggin In!");
       });
     }).catch((error) => {
