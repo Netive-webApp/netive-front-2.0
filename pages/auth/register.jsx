@@ -148,6 +148,13 @@ export default function Register(props) {
                       ref={password2}
                     />
                   </div>
+                  <small >
+                    <ul>
+                      <li className="text-red-500 font-bold">Password more than 8 Chars long</li>
+                      <li className="text-red-500 font-bold">Should Not be a common password</li>
+                    </ul>
+                    
+                  </small>
 
                   <div className="text-center mt-6">
                     <button
