@@ -23,10 +23,7 @@ const AdminHeader = ({ props }) => {
     <>
       <div className="bg-blueGray pb-48 " style={{marginBottom: "-8rem"}}>
         <div className="max-w-screen-xl mx-auto">
-            
-          <div className="py-2 text-white font-bold ml-4 inline rounded-sm text-sm">
-                Welcome, {username}!
-          </div>
+
           <div className="pt-14">
             
             { email_verified && 
