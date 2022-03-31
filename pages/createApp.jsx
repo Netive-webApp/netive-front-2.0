@@ -128,12 +128,18 @@ export default function NewAppForm(props) {
             </h1>
             <div className="grid py-4 mt-8 mb-8 sm:grid-cols-1 md:grid-cols-2">
               <div className="relative w-full my-5 px-2">
+
                 <label
                   className="required block uppercase text-blueGray text-xs font-bold mb-2"
                   htmlFor="grid-password"
+                  
                 >
-                  AppName
+                  AppName 
+                  <span class="tooltip mx-2"> ❓
+                    <span class="tooltiptext">App name must not contain any spaces. Eg- MyApp</span>
+                  </span>
                 </label>
+                
                 
                 <input
                   
@@ -150,7 +156,11 @@ export default function NewAppForm(props) {
                   className="required block uppercase text-blueGray text-xs font-bold mb-2"
                   htmlFor="grid-password"
                 >
+                  
                   Website URL
+                  <span class="tooltip mx-2"> ❓
+                    <span class="tooltiptext">Must be a valid url. Eg.- https://youtube.com</span>
+                  </span>
                 </label>
                 <input
                   type="url"
@@ -166,8 +176,12 @@ export default function NewAppForm(props) {
                   <label
                     className="required block uppercase text-blueGray text-xs font-bold mb-2"
                     htmlFor="grid-password"
+                    
                   >
                     App Icon
+                    <span class="tooltip mx-2"> ❓
+                      <span class="tooltiptext">Only a png file accepted.</span>
+                    </span>
                   </label>
                   <input
                     type="file"
@@ -196,6 +210,9 @@ export default function NewAppForm(props) {
                   htmlFor="grid-password"
                 >
                   Package Name
+                  <span class="tooltip mx-2"> ❓
+                    <span class="tooltiptext">The package name of an Android app uniquely identifies your app on the device, in Google Play Store, and in supported third-party Android stores.</span>
+                  </span>
                 </label>
                 <input
                   type="text"
@@ -285,6 +302,9 @@ export default function NewAppForm(props) {
                   htmlFor="grid-password"
                 >
                   Keystore Name
+                  <span class="tooltip mx-2"> ❓
+                    <span class="tooltiptext">The Android Keystore system lets you store cryptographic keys in a container to make it more difficult to extract from the device.</span>
+                  </span>
                 </label>
                 <input
                   type="text"
@@ -303,6 +323,9 @@ export default function NewAppForm(props) {
                   htmlFor="grid-password"
                 >
                   Name
+                  <span class="tooltip mx-2"> ❓
+                    <span class="tooltiptext">Your Name</span>
+                  </span>
                 </label>
                 <input
                   type="text"
@@ -320,6 +343,9 @@ export default function NewAppForm(props) {
                   htmlFor="grid-password"
                 >
                   Organizational Unit
+                  <span class="tooltip mx-2"> ❓
+                    <span class="tooltiptext">It is the name of the department of your company in which you work, if you work at one. See here for example. I usually put IT in that field.</span>
+                  </span>
                 </label>
                 <input
                   type="text"
@@ -337,6 +363,9 @@ export default function NewAppForm(props) {
                   htmlFor="grid-password"
                 >
                   Organization
+                  <span class="tooltip mx-2"> ❓
+                    <span class="tooltiptext">Name of your organization.</span>
+                  </span>
                 </label>
                 <input
                   type="text"
@@ -356,6 +385,9 @@ export default function NewAppForm(props) {
                   htmlFor="grid-password"
                 >
                   City
+                  <span class="tooltip mx-2"> ❓
+                    <span class="tooltiptext">The city of your organization.</span>
+                  </span>
                 </label>
                 <input
                   type="text"
@@ -373,6 +405,9 @@ export default function NewAppForm(props) {
                   htmlFor="grid-password"
                 >
                   State
+                  <span class="tooltip mx-2"> ❓
+                    <span class="tooltiptext">In what state of your country is your organization?.</span>
+                  </span>
                 </label>
                 <input
                   type="text"
@@ -390,6 +425,9 @@ export default function NewAppForm(props) {
                   htmlFor="grid-password"
                 >
                   Country Code
+                  <span class="tooltip mx-2"> ❓
+                    <span class="tooltiptext">Country Code of your country in two letters. Eg- USA would be US</span>
+                  </span>
                 </label>
                 <input
                   type="text"
@@ -409,6 +447,9 @@ export default function NewAppForm(props) {
                   htmlFor="grid-password"
                 >
                   Alias
+                  <span class="tooltip mx-2"> ❓
+                    <span class="tooltiptext">the alias field should be a unique string to identify the key entry. This applies to all types such a trusted and intermediate.</span>
+                  </span>
                 </label>
                 <input
                   type="text"
@@ -429,6 +470,9 @@ export default function NewAppForm(props) {
                   htmlFor="grid-password"
                 >
                   Keystore Password
+                  <span class="tooltip mx-2"> ❓
+                    <span class="tooltiptext">Password of your keystore.</span>
+                  </span>
                 </label>
                 <input
                   type="text"
@@ -445,6 +489,9 @@ export default function NewAppForm(props) {
                   htmlFor="grid-password"
                 >
                   Key Password
+                  <span class="tooltip mx-2"> ❓
+                    <span class="tooltiptext">Password for your key alias.  </span>
+                  </span>
                 </label>
                 <input
                   type="text"
@@ -468,12 +515,14 @@ export default function NewAppForm(props) {
            
 
             <div className="text-center mt-6 grid grid-cols-1 ">
+
               <button
                 className="bg-blueGray text-white p-3 text-lg"
                 type="submit"
               >
                 Create App
               </button>
+              
             </div>
           </form>
         </div>
