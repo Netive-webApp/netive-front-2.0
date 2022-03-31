@@ -8,6 +8,7 @@ import VerifyEmail from "../components/VerifyEmail";
 
 
 
+
 export default function Home(props) {
   var router = useRouter();
   
@@ -43,6 +44,7 @@ export default function Home(props) {
           {!email_verified &&
           <VerifyEmail props={props}/>
           }
+          
           
         </>
       

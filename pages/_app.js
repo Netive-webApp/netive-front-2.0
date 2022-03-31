@@ -9,7 +9,7 @@ import Login from "../components/login";
 import { useState } from "react";
 import userService from "../services/user.service";
 import { customHelpers } from "../helpers/custom-helpers";
-
+import Footer from "../components/Footer";
 
 
 import { transitions, positions, Provider as AlertProvider } from "react-alert";
@@ -44,6 +44,7 @@ function MyApp({ Component, pageProps }) {
       <AlertProvider template={AlertTemplate} {...options}>
         <Component {...pageProps}  />
       </AlertProvider>
+      <Footer/>
     </>
   );
 }
