@@ -132,13 +132,13 @@ export default function NewAppForm(props) {
                   className="required block uppercase text-blueGray text-xs font-bold mb-2"
                   htmlFor="grid-password"
                 >
-                  App Name
+                  AppName
                 </label>
                 <input
                   
                   type="text"
                   className=" customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                  placeholder="My Cool App"
+                  placeholder="MyCoolApp"
                   required
                   pattern="^\S+$"
                   ref={appName}
