@@ -44,7 +44,7 @@ function MyApp({ Component, pageProps }) {
       <AlertProvider template={AlertTemplate} {...options}>
         <Component {...pageProps}  />
       </AlertProvider>
-      <Footer/>
+      
     </>
   );
 }
