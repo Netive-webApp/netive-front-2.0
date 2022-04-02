@@ -8,7 +8,7 @@ const Navbar = () => {
       <div className="flex flex-row justify-between items-center max-w-screen-xl mx-auto ">
         <div className="ml-4 flex flex-row items-center">
           <Image src={`/netive-icon.png`} width={40} height={40}  />
-          <h1 class="brand-name mx-4">Netive Dashboard</h1>
+          <h1 className="brand-name mx-4">Netive Dashboard</h1>
         </div>
 
         <div className="mr-4 ">

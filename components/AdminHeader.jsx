@@ -30,7 +30,7 @@ const AdminHeader = ({ props }) => {
             <Link href="/createApp" className="m-2">
               <button className="py-2 px-3 btn-custom text-blueGray font-bold ml-4 inline rounded-sm text-sm ">
                 <span className="mx-2">
-                  <i class="fa-solid fa-plus"></i>
+                  <i className="fa-solid fa-plus"></i>
                 </span>
                 Create New App
               </button>

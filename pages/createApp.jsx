@@ -131,7 +131,7 @@ export default function NewAppForm(props) {
                     </span>
                     Basic Information
               </summary>
-              <div class="content">
+              <div className="content">
                   <div className="grid py-4 mt-8 mb-8 sm:grid-cols-1 md:grid-cols-2">
                     <div className="relative w-full my-5 px-2">
 
@@ -241,7 +241,7 @@ export default function NewAppForm(props) {
               <i className="fa-solid fa-droplet"></i>
               </span>Color Scheme
               </summary>
-              <div class="content">
+              <div className="content">
               <div className="grid grid-cols-1 md:grid-cols-2 sm-gr py-4 mt-8 mb-8 ">
               <div className="relative w-full px-6 py-3 ">
                 <label
@@ -298,7 +298,7 @@ export default function NewAppForm(props) {
               <i className="fa-solid fa-key"></i>
               </span>Keystore Information
               </summary>
-              <div class="content">
+              <div className="content">
               <small className="text-bold font-bold">
             <span className="rounded-full bg-indigo-500 uppercase px-2 py-1 font-white text-white text-xs font-bold mr-3">Note</span>
               Currently we only support creating new keystore per app,
