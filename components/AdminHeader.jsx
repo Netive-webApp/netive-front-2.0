@@ -22,9 +22,12 @@ const AdminHeader = ({ props }) => {
   return (
     <>
       <div className="pb-48 " style={{marginBottom: "-8rem"}}>
+        
         <div className="max-w-screen-xl mx-auto">
+        
 
-          <div className="pt-14">
+          <div className="pt-12 custom-flex justify-between">
+            <div className="custom-flex">
             
             { email_verified && 
             <Link href="/createApp" className="m-2">
@@ -44,6 +47,17 @@ const AdminHeader = ({ props }) => {
                 Dashboard
               </button>
             </Link>
+            </div>
+            <div className="user-card">
+              <span className="mx-2  text-sm font-normal">
+                Welcome, {username}!
+                </span>
+              <div class="relative inline-block">
+                <img class="inline-block object-cover w-12 h-12 rounded-full" src="https://github.com/hungryChicken412/shellU/blob/main/Shellu_FrontEnd/shelluFront/src/assets/icons/userIcon.png?raw=true" alt="Profile image"/>
+                <span class="absolute bottom-0 right-0 inline-block w-3 h-3 bg-green-600 border-2 border-white rounded-full">
+                </span>
+              </div>
+            </div>
             
           </div>
 

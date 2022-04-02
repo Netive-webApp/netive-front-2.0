@@ -532,7 +532,7 @@ export default function NewAppForm(props) {
             <div className="text-center mt-6 grid grid-cols-1 ">
 
               <button
-                className="bg-blueGray text-white p-3 text-lg"
+                className="btn-custom text-white p-3 text-lg"
                 type="submit"
               >
                 Create App

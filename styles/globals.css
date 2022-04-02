@@ -104,6 +104,31 @@ a {
   
 }
 
+.user-card{
+  display: flex;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  padding: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  justify-content: center;
+  align-items: center;
+}
+.custom-flex{
+  display: flex;
+}
+@media screen and (max-width: 600px) {
+  .user-card{
+    display: none;
+    flex-direction: column;
+  }
+  .custom-flex{
+    display: block;
+  }
+}
+
+
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #00dcda;  
