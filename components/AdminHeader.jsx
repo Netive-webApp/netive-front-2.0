@@ -52,9 +52,9 @@ const AdminHeader = ({ props }) => {
               <span className="mx-2  text-sm font-normal">
                 Welcome, {username}!
                 </span>
-              <div class="relative inline-block">
-                <img class="inline-block object-cover w-12 h-12 rounded-full" src="https://github.com/hungryChicken412/shellU/blob/main/Shellu_FrontEnd/shelluFront/src/assets/icons/userIcon.png?raw=true" alt="Profile image"/>
-                <span class="absolute bottom-0 right-0 inline-block w-3 h-3 bg-green-600 border-2 border-white rounded-full">
+              <div className="relative inline-block">
+                <img className="inline-block object-cover w-12 h-12 rounded-full" src="https://github.com/hungryChicken412/shellU/blob/main/Shellu_FrontEnd/shelluFront/src/assets/icons/userIcon.png?raw=true" alt="Profile image"/>
+                <span className="absolute bottom-0 right-0 inline-block w-3 h-3 bg-green-600 border-2 border-white rounded-full">
                 </span>
               </div>
             </div>
