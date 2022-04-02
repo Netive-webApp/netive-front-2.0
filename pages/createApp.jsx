@@ -111,8 +111,10 @@ export default function NewAppForm(props) {
             </div>
         </div>
       </div>
+
       <div className="max-w-screen-xl  mx-auto w-full" style={{display:submitting?"none" : "block"}}>
-        <div className="mx-4 bg-white shadow-md p-8 rounded-md">
+      <h1 className="mx-2 text-blueGray-700 text-Left text-4xl font-light my-6 hover:underline">#Create A New App </h1>
+        <div className="mx-4 bg-white shadow-md p-8 rounded-md form-custom">
         <small className="text-bold font-bold pt-8 pb-8">
           <span className="rounded-full bg-indigo-500 uppercase px-2 py-1 font-white text-white text-xs font-bold mr-3">Note</span>
           All Fields Are Required and no spaces allowed! except for name
@@ -120,120 +122,127 @@ export default function NewAppForm(props) {
           Some Fields Are Prepopulated For Testing Purposes, You are adviced to change them
         </small>
           <form className="mt-8" onSubmit={onSubmit}>
-            <h1 className="block uppercase text-blueGray text-lg font-bold mb-2">
-              <span className="px-2">
-                <i className="fa-solid fa-file-lines"></i>
-              </span>
-              Basic Information
-            </h1>
-            <div className="grid py-4 mt-8 mb-8 sm:grid-cols-1 md:grid-cols-2">
-              <div className="relative w-full my-5 px-2">
 
-                <label
-                  className="required block uppercase text-blueGray text-xs font-bold mb-2"
-                  htmlFor="grid-password"
+            <details>
+              <summary className="underline hover:cursor-pointer text-blueGray text-lg font-bold mb-2">
                   
-                >
-                  AppName 
-                  <span className="tooltip mx-2"> ❓
-                    <span className="tooltiptext">App name must not contain any spaces. Eg- MyApp</span>
-                  </span>
-                </label>
-                
-                
-                <input
-                  
-                  type="text"
-                  className=" customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                  placeholder="MyCoolApp"
-                  required
-                  pattern="^\S+$"
-                  ref={appName}
-                />
-              </div>
-              <div className="relative w-full my-5 px-2">
-                <label
-                  className="required block uppercase text-blueGray text-xs font-bold mb-2"
-                  htmlFor="grid-password"
-                >
-                  
-                  Website URL
-                  <span className="tooltip mx-2"> ❓
-                    <span className="tooltiptext">Must be a valid url. Eg.- https://youtube.com</span>
-                  </span>
-                </label>
-                <input
-                  type="url"
-                  className="customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                  placeholder="http://mycoolapp.com"
-                  required
-                  pattern="^\S+$"
-                  ref={url}
-                />
-              </div>
-              <div className="grid grid-cols-2 my-5 px-2  md:grid-cols-1">
-                <div className="relative w-full">
-                  <label
-                    className="required block uppercase text-blueGray text-xs font-bold mb-2"
-                    htmlFor="grid-password"
-                    
-                  >
-                    App Icon
-                    <span className="tooltip mx-2"> ❓
-                      <span className="tooltiptext">Only a png file accepted.</span>
+                    <span className="px-2">
+                      <i className="fa-solid fa-file-lines"></i>
                     </span>
-                  </label>
-                  <input
-                    type="file"
-                    className="customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    onChange={readIcon}
-                    id="icon"
-                    accept="image/png"
-                    ref={icon}
-                    required
-                  />
-                  
-                </div>
-                <small className="text-bold font-bold pt-8">
-                    <span className="rounded-full bg-indigo-500 uppercase px-2 py-1 font-white text-white text-xs font-bold mr-3">Note</span>
-                    Please Make Sure it is a PNG file and dimensions are
-                    rectangular, eg. 512x512
-                  </small>
-                <div className="app-icon-holder pt-2">
-                  <img className="app-icon-display" id="icon_prev" required />
-                </div>
-              </div>
+                    Basic Information
+              </summary>
+              <div class="content">
+                  <div className="grid py-4 mt-8 mb-8 sm:grid-cols-1 md:grid-cols-2">
+                    <div className="relative w-full my-5 px-2">
 
-              <div className="relative w-full my-5 px-2">
-                <label
-                  className="block uppercase text-blueGray text-xs font-bold mb-2"
-                  htmlFor="grid-password"
-                >
-                  Package Name
-                  <span className="tooltip mx-2"> ❓
-                    <span className="tooltiptext">The package name of an Android app uniquely identifies your app on the device, in Google Play Store, and in supported third-party Android stores.</span>
-                  </span>
-                </label>
-                <input
-                  type="text"
-                  className="customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                  placeholder="com.mycoolapp.app"
-                  required
-                  pattern="^([A-Za-z]{1}[A-Za-z\d_]*\.)+[A-Za-z][A-Za-z\d_]*$"
-                  ref={package_name}
-                />
+                      <label
+                        className="required block uppercase text-blueGray text-xs font-bold mb-2"
+                        htmlFor="grid-password"
+                        
+                      >
+                        AppName 
+                        <span className="tooltip mx-2"> ❓
+                          <span className="tooltiptext">App name must not contain any spaces. Eg- MyApp</span>
+                        </span>
+                      </label>
+                      
+                      
+                      <input
+                        
+                        type="text"
+                        className=" customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        placeholder="MyCoolApp"
+                        required
+                        pattern="^\S+$"
+                        ref={appName}
+                      />
+                    </div>
+                    <div className="relative w-full my-5 px-2">
+                      <label
+                        className="required block uppercase text-blueGray text-xs font-bold mb-2"
+                        htmlFor="grid-password"
+                      >
+                        
+                        Website URL
+                        <span className="tooltip mx-2"> ❓
+                          <span className="tooltiptext">Must be a valid url. Eg.- https://youtube.com</span>
+                        </span>
+                      </label>
+                      <input
+                        type="url"
+                        className="customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        placeholder="http://mycoolapp.com"
+                        required
+                        pattern="^\S+$"
+                        ref={url}
+                      />
+                    </div>
+                    <div className="grid grid-cols-2 my-5 px-2  md:grid-cols-1">
+                      <div className="relative w-full">
+                        <label
+                          className="required block uppercase text-blueGray text-xs font-bold mb-2"
+                          htmlFor="grid-password"
+                          
+                        >
+                          App Icon
+                          <span className="tooltip mx-2"> ❓
+                            <span className="tooltiptext">Only a png file accepted.</span>
+                          </span>
+                        </label>
+                        <input
+                          type="file"
+                          className="customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                          onChange={readIcon}
+                          id="icon"
+                          accept="image/png"
+                          ref={icon}
+                          required
+                        />
+                        
+                      </div>
+                      <small className="text-bold font-bold pt-8">
+                          <span className="rounded-full bg-indigo-500 uppercase px-2 py-1 font-white text-white text-xs font-bold mr-3">Note</span>
+                          Please Make Sure it is a PNG file and dimensions are
+                          rectangular, eg. 512x512
+                        </small>
+                      <div className="app-icon-holder pt-2">
+                        <img className="app-icon-display" id="icon_prev" required />
+                      </div>
+                    </div>
+
+                    <div className="relative w-full my-5 px-2">
+                      <label
+                        className="block uppercase text-blueGray text-xs font-bold mb-2"
+                        htmlFor="grid-password"
+                      >
+                        Package Name
+                        <span className="tooltip mx-2"> ❓
+                          <span className="tooltiptext">The package name of an Android app uniquely identifies your app on the device, in Google Play Store, and in supported third-party Android stores.</span>
+                        </span>
+                      </label>
+                      <input
+                        type="text"
+                        className="customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        placeholder="com.mycoolapp.app"
+                        required
+                        pattern="^([A-Za-z]{1}[A-Za-z\d_]*\.)+[A-Za-z][A-Za-z\d_]*$"
+                        ref={package_name}
+                      />
+                    </div>
+                  </div>
               </div>
-            </div>
+            </details>
+
             <hr className=" border-b-1 border-blueGray-300 mt-8 mb-8" />
-
-            <h1 className="block uppercase text-blueGray text-lg font-bold mb-2">
-              
+            <details>
+              <summary className="underline hover:cursor-pointer text-blueGray text-lg font-bold mb-2">
+                  
               <span className="px-2">
               <i className="fa-solid fa-droplet"></i>
               </span>Color Scheme
-            </h1>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 sm-gr py-4 mt-8 mb-8 ">
+              </summary>
+              <div class="content">
+              <div className="grid grid-cols-1 md:grid-cols-2 sm-gr py-4 mt-8 mb-8 ">
               <div className="relative w-full px-6 py-3 ">
                 <label
                   className="required block uppercase text-blueGray text-xs font-bold mb-2"
@@ -277,24 +286,24 @@ export default function NewAppForm(props) {
                 />
               </div>
             </div>
+              </div>
+            </details>
+            
             <hr className="mt-6 border-b-1 border-blueGray-300 mb-8" />
-            <h1 className="block uppercase text-blueGray text-lg font-bold mb-8">
-              
-              
+            
+            <details>
+              <summary className="underline hover:cursor-pointer text-blueGray text-lg font-bold mb-2">
+                  
               <span className="px-2">
               <i className="fa-solid fa-key"></i>
               </span>Keystore Information
-            </h1>
-
-
-            
-            <small className="text-bold font-bold">
+              </summary>
+              <div class="content">
+              <small className="text-bold font-bold">
             <span className="rounded-full bg-indigo-500 uppercase px-2 py-1 font-white text-white text-xs font-bold mr-3">Note</span>
               Currently we only support creating new keystore per app,
               later we will support premade keystores
             </small>
-
-            
             <div className="grid py-4 mt-8 mb-8 sm:grid-cols-1 md:grid-cols-2">
               <div className="relative w-full my-5 px-2">
                 <label
@@ -510,7 +519,13 @@ export default function NewAppForm(props) {
                 We do not store these credentials, they are only used to
                 generate the keystore Please keep them somewhere safe and
                 secure.
-              </small>
+            </small>
+              </div>
+            </details>
+            <hr className="mt-6 border-b-1 border-blueGray-300 mb-8" />
+
+            
+            
 
            
 
@@ -527,6 +542,7 @@ export default function NewAppForm(props) {
           </form>
         </div>
       </div>
+      
     </>
   );
 }

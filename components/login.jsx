@@ -41,7 +41,7 @@ const Login = () => {
                     Sign in
                   </h6>
                 </div>
-                {/*<div className="btn-wrapper text-center">
+                <div className="btn-wrapper text-center">
                   <a
                     href={google_login_url}
                     className="bg-white active:bg-blueGray-50 text-blueGray-700  px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
@@ -50,7 +50,7 @@ const Login = () => {
                     <img alt="..." className="w-5 mr-1" src="/google.svg" />
                     Google
                   </a>
-  </div>*/}
+                </div>
                 <hr className="mt-6 border-b-1 border-blueGray-300" />
               </div>
               <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
@@ -69,7 +69,7 @@ const Login = () => {
 
                     <input
                       type="text"
-                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      className="border-0 customBorder px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Username"
                       name="username"
                       ref={username}
@@ -86,7 +86,7 @@ const Login = () => {
 
                     <input
                       type="password"
-                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      className="border-0 customBorder px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Password"
                       name="password"
                       ref={password}
@@ -96,7 +96,7 @@ const Login = () => {
 
                   <div className="text-center mt-6">
                     <button
-                      className="bg-blueGray pt-2 pb-2 text-white w-full disabled:opacity-50"
+                      className="btn-custom pt-2 pb-2 text-white w-full disabled:opacity-50"
                       disabled={submitting}
                       type="button"
                       onClick={onSubmit}

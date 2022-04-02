@@ -61,7 +61,7 @@ export default function Register(props) {
                     CREATE NEW ACCOUNT
                   </h6>
                 </div>
-                {/*<div className="btn-wrapper text-center">
+                <div className="btn-wrapper text-center">
                   <a
                     href={google_login_url}
                     className="bg-white active:bg-blueGray-50 text-blueGray-700  px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
@@ -70,7 +70,7 @@ export default function Register(props) {
                     <img alt="..." className="w-5 mr-1" src="/google.svg" />
                     Google
                   </a>
-                </div>*/}
+                </div>
                 <hr className="mt-6 border-b-1 border-blueGray-300" />
               </div>
               <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
@@ -89,7 +89,7 @@ export default function Register(props) {
 
                     <input
                       type="text"
-                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      className="border-0 customBorder px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Username"
                       name="username"
                       required
@@ -98,7 +98,7 @@ export default function Register(props) {
                   </div>
                   <div className="relative w-full mb-3">
                     <label
-                      className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                      className="block customBorder uppercase text-blueGray-600 text-xs font-bold mb-2"
                       htmlFor="grid-password"
                     >
                       EMAIL
@@ -106,7 +106,7 @@ export default function Register(props) {
 
                     <input
                       type="email"
-                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      className="border-0 customBorder px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="your@email.com"
                       name="email"
                       required
@@ -124,7 +124,7 @@ export default function Register(props) {
 
                     <input
                       type="password"
-                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      className="border-0 customBorder px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Password"
                       name="password"
                       required
@@ -141,7 +141,7 @@ export default function Register(props) {
 
                     <input
                       type="password"
-                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      className="border-0 customBorder px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Password"
                       required
                       name="password2"
@@ -159,7 +159,7 @@ export default function Register(props) {
 
                   <div className="text-center mt-6">
                     <button
-                      className="bg-black text-white px-3 py-2 w-full disabled:opacity-50"
+                      className="bg-black text-white btn-custom px-3 py-2 w-full disabled:opacity-50"
                       disabled={submitting}
                       type="submit"
                     >

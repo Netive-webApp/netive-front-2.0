@@ -45,6 +45,12 @@ function MyApp({ Component, pageProps }) {
         <Component {...pageProps}  />
       </AlertProvider>
       
+  <footer class="text-center text-white">
+    <div class="text-center text-gray-700 p-4">
+      Made with love @ 
+      <a class="text-gray-800 hover:underline" href="https://netive.tech/"> Netive</a>
+    </div>
+  </footer>
     </>
   );
 }

@@ -10,7 +10,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background:#f1f1f1;
+  background:white;
 }
 
 a {
@@ -67,4 +67,76 @@ a {
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
+
+
+
+
+
+
+.brand-name{
+  font-weight: 100;
+  display: inline;
+  font-size: 2.5rem;
+}
+
+.btn-custom{
+  background-color: #00dcda;
+  border-radius: 10px;
+  color: white;
+  font-weight: 400;
+  transition: all ease-in 0.2s;
+}
+
+.btn-custom:hover{
+  box-shadow: 0px 0px 10px 0px rgba(67, 67, 67, 0.222);
+  border-radius: 20px;
+}
+
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #00dcda;  
+}
+
+
+
+
+.card-custom{
+  border: 1px rgb(237 237 237) solid;
+  border-radius: 23px;
+  box-shadow: 0 0 10px hsl(0deg 0% 91% / 0%);
+  transform: all ease-in 0.2s;
+}
+.card-custom:hover{
+  box-shadow: 0 0 10px rgba(154, 154, 154, 0.407);
+  background-color: #00dcda;
+} .customBorder{
+  border: 1px
+}
+.form-custom{
+  border: 1px rgb(237 237 237) solid;
+  border-radius: 23px;
+  box-shadow: 0 0 10px hsl(0deg 0% 91% / 0%);
+}
+
+
+
+
+
+
+
+
+
+
 

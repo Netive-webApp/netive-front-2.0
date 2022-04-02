@@ -6,7 +6,9 @@ const AppTable = ({ props }) => {
   var data = userService.getApps(props.cookie);
   return (
     <div className="max-w-screen-xl  mx-auto w-full">
+      
       <div className="  mx-4 overflow-x-hidden bg-white rounded-md">
+        <h1 className="mx-2 text-blueGray-700 text-Left text-4xl font-light my-6 hover:underline">#Your Apps</h1>
         <div className="overflow-x-scroll">
           <table className=" overflow-x-auto  w-full bg-white">
             <thead>
@@ -51,7 +53,7 @@ const AppTable = ({ props }) => {
                   <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 font-bold">
                    {app.status=="ready" ? (
                       <>
-                      <a className="py-2 downloadButton font-bold ml-4 inline rounded-sm text-sm"href={app.appZip} download>
+                      <a className="py-2 btn-custom downloadButton font-bold ml-4 inline rounded-sm text-sm"href={app.appZip} download>
                       
                       Ready
                       <span className="px-2"><i className="fa-solid fa-download"></i></span>

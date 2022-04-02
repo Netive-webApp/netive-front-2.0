@@ -45,6 +45,6 @@ export default function TokenVerification() {
 
 
   return (
-      <div>hi</div>
+      <div>Redirecting Please Wait...</div>
   );
 }

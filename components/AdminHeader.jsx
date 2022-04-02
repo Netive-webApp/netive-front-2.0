@@ -21,21 +21,27 @@ const AdminHeader = ({ props }) => {
 
   return (
     <>
-      <div className="bg-blueGray pb-48 " style={{marginBottom: "-8rem"}}>
+      <div className="pb-48 " style={{marginBottom: "-8rem"}}>
         <div className="max-w-screen-xl mx-auto">
 
           <div className="pt-14">
             
             { email_verified && 
             <Link href="/createApp" className="m-2">
-              <button className="py-2 px-3 bg-white text-blueGray font-bold ml-4 inline rounded-sm text-sm ">
-                CREATE NEW APP
+              <button className="py-2 px-3 btn-custom text-blueGray font-bold ml-4 inline rounded-sm text-sm ">
+                <span className="mx-2">
+                  <i class="fa-solid fa-plus"></i>
+                </span>
+                Create New App
               </button>
             </Link>}
       
             <Link href="/">
-              <button className="py-2 px-3 bg-white text-blueGray font-bold ml-4 inline rounded-sm text-sm">
-                DASHBOARD
+              <button className="py-2 px-3 btn-custom text-blueGray font-bold ml-4 inline rounded-sm text-sm">
+                <span className="mx-2">
+                  <i className="fa-solid fa-chart-line"></i>
+                </span>
+                Dashboard
               </button>
             </Link>
             
