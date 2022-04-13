@@ -9,13 +9,16 @@ import AdminHeader from "../components/AdminHeader";
 import Navbar from "../components/Navbar";
 import { useState } from "react";
 
+import CustomColorPickerH from "../components/ColorPicker";
+
+
 export default function NewAppForm(props) {
   const router = useRouter();
   const [isAuthenticated, cookie] = customHelpers.checkAuth(router, "/", false);
 ;
   if (isAuthenticated){
     var data = userService.getDashboardData(cookie);
-    console.log(email_verified);
+  
     
     try {
       var email_verified = data[0]['email_confirmed'];
@@ -35,9 +38,9 @@ export default function NewAppForm(props) {
   var url = createRef();
   var icon = createRef();
   var package_name = createRef();
-  var primaryColor = createRef();
-  var primaryColorDark = createRef();
-  var colorAccent = createRef();
+  var primaryColor = '';
+  var primaryColorDark = '';
+  var colorAccent = '';
   var keystoreName = createRef();
   var Name = createRef();
   var OrganizationUnit = createRef();
@@ -54,14 +57,15 @@ export default function NewAppForm(props) {
   const onSubmit = event => {
     event.preventDefault();
     submitting = setSubmitting(true);
+    readColors();
     let form_data = new FormData();
     form_data.append("image", document.getElementById("icon").files[0]);
     form_data.append("appName", appName.current.value);
     form_data.append("url", url.current.value);
     form_data.append("package_name", package_name.current.value);
-    form_data.append("primaryColor", primaryColor.current.value);
-    form_data.append("primaryColorDark", primaryColorDark.current.value);
-    form_data.append("colorAccent", colorAccent.current.value);
+    form_data.append("primaryColor", primaryColor);
+    form_data.append("primaryColorDark", primaryColorDark);
+    form_data.append("colorAccent", colorAccent);
     form_data.append("keystoreName", keystoreName.current.value);
     form_data.append("Name", Name.current.value);
     form_data.append("OrganizationUnit", OrganizationUnit.current.value);
@@ -72,28 +76,38 @@ export default function NewAppForm(props) {
     form_data.append("keystorePassword", keystorePassword.current.value);
     form_data.append("keyAlias", keyAlias.current.value);
     form_data.append("keyPassword", keyPassword.current.value);
-
     axios
-      .post(
-        "https://netive-backend.herokuapp.com/api-info/register/app/",
-        form_data,
-        { headers: { Authorization: `Token ${cookie}` } }
-      )
-      .then((res) => {
-        console.log(res);
-        router.push("/");
-      })
-      .catch((err) => {
-        console.log("Erro! Creating App!");
-        console.log(err);
-      });
-  }
+    .post(
+      "https://netive-backend.herokuapp.com/api-info/register/app/",
+      form_data,
+      { headers: { Authorization: `Token ${cookie}` } }
+    )
+    .then((res) => {
+      console.log(res);
+      router.push("/");
+    })
+    .catch((err) => {
+      console.log("Erro! Creating App!");
+      console.log(err);
+    });
 
+
+  }
   function readIcon() {
     icon = document.getElementById("icon").files[0];
     document
       .getElementById("icon_prev")
       .setAttribute("src", URL.createObjectURL(icon));
+  }
+
+  function readColors(){
+    var el1 = document.getElementById("colorcustom_primary");
+    var el2 = document.getElementById("colorcustom_primaryDark");
+    var el3 = document.getElementById("colorcustom_accent");
+    const rgb2hex = (rgb) => `#${rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/).slice(1).map(n => parseInt(n, 10).toString(16).padStart(2, '0')).join('')}`
+    primaryColor = rgb2hex(el1.style.backgroundColor)
+    primaryColorDark = rgb2hex(el2.style.backgroundColor)
+    colorAccent = rgb2hex(el3.style.backgroundColor)
   }
   return (
     
@@ -121,6 +135,7 @@ export default function NewAppForm(props) {
           <br></br>
           Some Fields Are Prepopulated For Testing Purposes, You are adviced to change them
         </small>
+        
           <form className="mt-8" onSubmit={onSubmit}>
 
             <details>
@@ -250,12 +265,7 @@ export default function NewAppForm(props) {
                 >
                   Primary Color
                 </label>
-                <input
-                  type="color"
-                  className="rounded w-full ease-linear transition-all duration-150"
-                  required
-                  ref={primaryColor}
-                />
+                <CustomColorPickerH id="colorcustom_primary"/>
               </div>
               <div className="relative w-full px-6 py-3">
                 <label
@@ -264,12 +274,7 @@ export default function NewAppForm(props) {
                 >
                   Primary Color Dark
                 </label>
-                <input
-                  type="color"
-                  className="rounded w-full ease-linear transition-all duration-150"
-                  required
-                  ref={primaryColorDark}
-                />
+                <CustomColorPickerH id="colorcustom_primaryDark"/>
               </div>
               <div className="relative w-full px-6 py-3">
                 <label
@@ -278,12 +283,7 @@ export default function NewAppForm(props) {
                 >
                   Color
                 </label>
-                <input
-                  type="color"
-                  className="rounded w-full ease-linear transition-all duration-150"
-                  required
-                  ref={colorAccent}
-                />
+                <CustomColorPickerH id="colorcustom_accent"/>
               </div>
             </div>
               </div>
@@ -537,6 +537,7 @@ export default function NewAppForm(props) {
               <button
                 className="btn-custom text-white p-3 text-lg"
                 type="submit"
+                
               >
                 Create App
               </button>
