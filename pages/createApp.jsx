@@ -488,7 +488,9 @@ export default function NewAppForm(props) {
                   className="customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="Keystore Password"
                   required
+                  minLength={7}
                   pattern="^\S+$"
+                  
                   ref={keystorePassword}
                 />
               </div>
@@ -507,6 +509,7 @@ export default function NewAppForm(props) {
                   className="customBorder px-3 py-3 placeholder-gray text-blueGray bg-white rounded text-sm shadow-md focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="Key Password"
                   required
+                  minLength={7}
                   pattern="^\S+$"
                   ref={keyPassword}
                 />
