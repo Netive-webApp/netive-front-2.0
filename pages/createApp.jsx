@@ -181,11 +181,11 @@ export default function NewAppForm(props) {
                       </li>
                       <li className="my-2">
                       <span className="rounded-full bg-indigo-500 uppercase px-2 py-1 font-white text-white text-xs font-bold mr-3">NOTE</span>
-                      It is important that the package name MUST NOT CONTAIN the word "package".
+                      It is important that the package name MUST NOT CONTAIN the word package.
                       </li>
                     </ul>
                     <br></br>
-                    <a target="_blank" className="rounded-full bg-green-400 uppercase mt-3 px-2 py-1 font-white text-white text-xs font-bold mr-3" href="https://support.google.com/admob/answer/9972781?hl=en#:~:text=The%20package%20name%20of%20an,supported%20third%2Dparty%20Android%20stores.">What is package name?</a>
+                    <a target="_blank" rel="noreferrer" className="rounded-full bg-green-400 uppercase mt-3 px-2 py-1 font-white text-white text-xs font-bold mr-3" href="https://support.google.com/admob/answer/9972781?hl=en#:~:text=The%20package%20name%20of%20an,supported%20third%2Dparty%20Android%20stores.">What is package name?</a>
                   </small>
                 </div>
                   <summary className="underline hover:cursor-pointer text-blueGray text-lg font-bold mb-2">
@@ -320,7 +320,7 @@ export default function NewAppForm(props) {
                       </li>
                     </ul>
                     <br></br>
-                    <a target="_blank" className="rounded-full bg-green-400 uppercase mt-3 px-2 py-1 font-white text-white text-xs font-bold mr-3" href="https://support.google.com/admob/answer/9972781?hl=en#:~:text=The%20package%20name%20of%20an,supported%20third%2Dparty%20Android%20stores.">What is package name?</a>
+                    <a target="_blank" rel="noreferrer" className="rounded-full bg-green-400 uppercase mt-3 px-2 py-1 font-white text-white text-xs font-bold mr-3" href="https://support.google.com/admob/answer/9972781?hl=en#:~:text=The%20package%20name%20of%20an,supported%20third%2Dparty%20Android%20stores.">What is package name?</a>
                   </small>
                 </div>
                   <summary className="underline hover:cursor-pointer text-blueGray text-lg font-bold mb-2">
@@ -395,8 +395,8 @@ export default function NewAppForm(props) {
                   </ul>
                   <br></br>
                   
-                  <a target="_blank" className="rounded-full bg-green-400 uppercase mt-3 px-2 py-1 font-white text-white text-xs font-bold mr-3" href="https://developer.android.com/training/articles/keystore#:~:text=The%20Android%20Keystore%20system%20lets,key%20material%20remaining%20non%2Dexportable.">What is Keystore?</a>
-                  <a target="_blank" className="rounded-full bg-green-400 uppercase mt-3 px-2 py-1 font-white text-white text-xs font-bold mr-3" href="https://developer.android.com/studio/publish/app-signing">Learn More</a>
+                  <a target="_blank" rel="noreferrer" className="rounded-full bg-green-400 uppercase mt-3 px-2 py-1 font-white text-white text-xs font-bold mr-3" href="https://developer.android.com/training/articles/keystore#:~:text=The%20Android%20Keystore%20system%20lets,key%20material%20remaining%20non%2Dexportable.">What is Keystore?</a>
+                  <a target="_blank" rel="noreferrer" className="rounded-full bg-green-400 uppercase mt-3 px-2 py-1 font-white text-white text-xs font-bold mr-3" href="https://developer.android.com/studio/publish/app-signing">Learn More</a>
                 </small>
               </div>
                 <summary className="underline hover:cursor-pointer text-blueGray text-lg font-bold mb-2">
