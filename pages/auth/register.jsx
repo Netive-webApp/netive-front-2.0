@@ -48,6 +48,10 @@ export default function Register(props) {
     
     
   }
+
+  function click(){
+    window.open(google_login_url,'name','width=600,height=400')
+  }
   return (
     <>
 
@@ -63,7 +67,8 @@ export default function Register(props) {
                 </div>
                 <div className="btn-wrapper text-center">
                   <a
-                    href={google_login_url}
+                    href="#"
+                    onClick={click}
                     className="bg-white active:bg-blueGray-50 text-blueGray-700  px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
                     type="button"
                   >

@@ -117,9 +117,36 @@ a {
 .custom-flex{
   display: flex;
 }
+.form-control{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px;
+}
+.prev{
+  padding: 10px;
+  background-color: #0080dc;
+}
+.next{
+  padding: 10px;
+  background-color: #0080dc;
+}
+.help{
+  padding: 10px;
+  border-radius: 10px;
+  margin: 20px;
+  background-color: #ffffff;
+  border-color: #dcdcdc;
+  border-width: 1px;
+}
 @media screen and (max-width: 600px) {
   .user-card{
     display: none;
+    flex-direction: column;
+  }
+  .form-control{
+    display: flex;
     flex-direction: column;
   }
   .custom-flex{
@@ -131,6 +158,8 @@ a {
   padding: 10px;
   width: 100%;
 }
+
+
 
 
 /* Handle */

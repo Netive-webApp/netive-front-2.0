@@ -26,6 +26,7 @@ export default function TokenVerification() {
         } catch (err){
             console.log(err);
             console.log("Token Validation: ERROR");
+            router.push("/");
 
         }
             

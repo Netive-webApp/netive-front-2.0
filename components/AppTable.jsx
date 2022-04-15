@@ -4,6 +4,14 @@ import { userService } from "../services/user.service";
 
 const AppTable = ({ props }) => {
   var data = userService.getApps(props.cookie);
+  try {
+    console.log(data.sort(function(a, b) {
+      return b.created < a.created;
+    }));
+  } catch {
+
+  }
+
   return (
     <div className="max-w-screen-xl  mx-auto w-full">
       
