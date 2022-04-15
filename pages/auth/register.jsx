@@ -50,7 +50,7 @@ export default function Register(props) {
   }
 
   function click(){
-    window.open(google_login_url,'name','width=600,height=400')
+    window.open(google_login_url,'name')
   }
   return (
     <>
