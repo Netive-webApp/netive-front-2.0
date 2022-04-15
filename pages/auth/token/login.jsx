@@ -35,16 +35,13 @@ export default function TokenVerification() {
 
     } else {
         if (typeof window != 'undefined'){
-            console.log("here");
-            window.open('https://app.netive.tech/');
-            console.log("here2");
+            router.push('/');
             
         }
     }
 } catch (err){
         if (typeof window != 'undefined'){
             console.log(err);
-            router.push('/');
             router.push('/');
         }
     }
