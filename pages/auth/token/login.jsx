@@ -26,7 +26,9 @@ export default function TokenVerification() {
         } catch (err){
             console.log(err);
             console.log("Token Validation: ERROR");
-            router.push("/");
+            alert("Token Validation: ERROR");
+            window.close();
+            
 
         }
             
@@ -34,12 +36,15 @@ export default function TokenVerification() {
     } else {
         if (typeof window != 'undefined'){
             router.push('/');
+            window.open('https://app.netive.tech/', '_blank');
+            window.close();
         }
     }
 } catch (err){
         if (typeof window != 'undefined'){
             console.log(err);
             router.push('/');
+            window.open('https://app.netive.tech/', '_blank');
         }
     }
 
