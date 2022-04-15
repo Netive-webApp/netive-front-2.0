@@ -35,8 +35,9 @@ export default function TokenVerification() {
 
     } else {
         if (typeof window != 'undefined'){
-            router.push('/');
-            window.open('https://app.netive.tech/', '_blank');
+            console.log("here");
+            window.open('https://app.netive.tech/');
+            console.log("here2");
             
         }
     }
@@ -44,7 +45,7 @@ export default function TokenVerification() {
         if (typeof window != 'undefined'){
             console.log(err);
             router.push('/');
-            window.open('https://app.netive.tech/', '_blank');
+            router.push('/');
         }
     }
 
