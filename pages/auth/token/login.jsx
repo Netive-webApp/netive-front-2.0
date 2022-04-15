@@ -37,7 +37,7 @@ export default function TokenVerification() {
         if (typeof window != 'undefined'){
             router.push('/');
             window.open('https://app.netive.tech/', '_blank');
-            window.close();
+            
         }
     }
 } catch (err){
