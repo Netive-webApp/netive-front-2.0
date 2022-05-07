@@ -173,6 +173,7 @@ export default function NewAppForm(props) {
       form_data.append("keyPassword", keystorePassword.current.value);
 
       form_data.append("keystorePassword2", keystorePassword2.current.value);
+      form_data.append("ios_certificate_password", keyPassword.current.value);
       form_data.append("admob", admob.current.value);
       form_data.append("pushNoti", pushNoti.current.value);
       form_data.append("provisioningProfile", provisioningProfile.current.value);
@@ -184,7 +185,7 @@ export default function NewAppForm(props) {
       form_data.append("GSFile", GSFile.current.value);
       form_data.append("keystore_setting", keystore_setting);
       form_data.append("keystore", keystore.current.files[0]);
-      form_data.append("keystore_password", keystorePassword.current.value);
+      
 
 
 
@@ -203,7 +204,8 @@ export default function NewAppForm(props) {
         router.push("/");
       })
       .catch((err) => {
-        console.log("Erro! Creating App!");
+        console.log("Error! Creating App!");
+        alert.error("Error! Creating App! Please Contact Support if the error persists.");
         console.log(err);
       });
       
