@@ -697,7 +697,7 @@ export default function NewAppForm(props) {
                         <label className="rad-label">
                           <input type="radio" className="rad-input" name="keystoreRadio" onChange={newKeystore} defaultChecked/>
                           <div className="rad-design"></div>
-                          <div className="rad-text">I don't have a keystore, Create New (For Android)</div>
+                          <div className="rad-text">I do not have a keystore, Create New (For Android)</div>
                         </label>
                       
                         <label className="rad-label">
