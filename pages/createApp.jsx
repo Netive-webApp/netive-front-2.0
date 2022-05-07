@@ -206,6 +206,7 @@ export default function NewAppForm(props) {
       .catch((err) => {
         console.log("Error! Creating App!");
         alert.error("Error! Creating App! Please Contact Support if the error persists.");
+        router.push("/");
         console.log(err);
       });
       
@@ -583,13 +584,13 @@ export default function NewAppForm(props) {
             <div className="form_step_content">
                 <div className="containerr">
                     <ul className="ks-cboxtags">
-                      <li><input type="checkbox" id="admobCheck" value="admob" onChange={doss} ref={admob} defaultChecked /><label htmlFor="admobCheck">Admob</label></li>
-                      <li><input type="checkbox" id="firebaseCheck" value="firebasePush"  onChange={doss} ref={pushNoti} defaultChecked /><label htmlFor="firebaseCheck">Firebase Push Notification Service</label></li>
+                      <li><input type="checkbox" id="admobCheck" value="admob" onChange={doss} ref={admob} disabled/><label htmlFor="admobCheck">Admob (coming soon)</label></li>
+                      <li><input type="checkbox" id="firebaseCheck" value="firebasePush"  onChange={doss} ref={pushNoti} disabled /><label htmlFor="firebaseCheck">Firebase Push Notification Service (coming soon)</label></li>
                     </ul>
                   </div>
 
 
-                <div className="form_step_content" id="google_service">
+                <div className="form_step_content" id="google_service" style={{display:'none'}}>
                   <div className="form_step_content_input">
                       <input
                       type="text"
