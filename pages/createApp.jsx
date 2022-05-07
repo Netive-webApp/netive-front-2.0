@@ -527,7 +527,7 @@ export default function NewAppForm(props) {
                         This is a string specified during development, often in the form of com.your-company.app-name, or sometimes as a GUID. This string, the package name, is located in the name attribute of the Identity element in your app’s manifest file.
                         <br/>
                         Learn more at
-                        <a style={{textDecoration: 'none'}} href="https://support.google.com/admob/answer/9972781?hl=en#:~:text=The%20package%20name%20of%20an,supported%20third%2Dparty%20Android%20stores." target="_blank">Google</a>
+                        <a style={{textDecoration: 'none'}} href="https://support.google.com/admob/answer/9972781?hl=en#:~:text=The%20package%20name%20of%20an,supported%20third%2Dparty%20Android%20stores." target="_blank" rel="noreferrer">Google</a>
                         </div>
                   </div>
                 </div>
@@ -685,7 +685,7 @@ export default function NewAppForm(props) {
                         The Android Keystore system lets you store cryptographic keys in a container to make it more difficult to extract from the device. Once keys are in the keystore, they can be used htmlFor cryptographic operations with the key material remaining non-exportable. Moreover, it offers facilities to restrict when and how keys can be used, such as requiring user authentication htmlFor key use or restricting keys to be used only in certain cryptographic modes. See Security Features section htmlFor more information.
                         <br/>
                         Learn more at
-                        <a style={{textDecoration:"none"}} href="https://developer.android.com/training/articles/keystore#:~:text=The%20Android%20Keystore%20system%20lets,key%20material%20remaining%20non%2Dexportable." target="_blank">Google</a>
+                        <a style={{textDecoration:"none"}} href="https://developer.android.com/training/articles/keystore#:~:text=The%20Android%20Keystore%20system%20lets,key%20material%20remaining%20non%2Dexportable." target="_blank" rel="noreferrer">Google</a>
                         </div>
                   </div>
                 </div>
