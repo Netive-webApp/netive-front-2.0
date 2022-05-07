@@ -222,6 +222,7 @@ export default function NewAppForm(props) {
     document
       .getElementById("icon-label")
       .style.backgroundSize = `contain`;
+    document.getElementById("icon-label").innerHTML = "";
   }
   function readColors(){
     var el1 = document.getElementById("colorcustom_primary");
@@ -458,8 +459,8 @@ export default function NewAppForm(props) {
                     </ul>
                   </div>
                 </div>
-                <div className="form_step_content_input img_input">
-                    <label htmlFor="icon" className="custom-file-upload" id="icon-label" style={{background:"url('https://cdn.sstatic.net/Img/teams/teams-illo-free-sidebar-promo.svg?v=47faa659a05e') no-repeat center;"}}>
+                <div className="form_step_content_input img_input py-4">
+                    <label htmlFor="icon" className="custom-file-upload" id="icon-label" style={{background:"url('plus-sign.png') no-repeat center;", backgroundSize: 'contain'}}>
                         <i className="fa fa-cloud-upload"></i> Select Icon
                     </label>
                     <input
