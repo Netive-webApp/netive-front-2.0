@@ -67,7 +67,7 @@ const Sidebar = ({props}) => {
              }
 
             <div className="sidebar-link">
-                <a href="https://netive.tech/docs" target="_blank" onClick={toggleNavbar}>Docs</a>
+                <a href="https://netive.tech/docs" target="_blank" rel="noreferrer" onClick={toggleNavbar}>Docs</a>
             </div>
             <div className="sidebar-link">
                 <a href="mailto:team@netive.tech" onClick={toggleNavbar}>Support</a>

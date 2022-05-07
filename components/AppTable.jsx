@@ -19,7 +19,7 @@ const AppTable = ({ props }) => {
               <button className="px-4 py-2 text-dark"  onClick={props[1]} >
                 
                 <span className="px-2 py-2 rounded-full border-2 ">
-                <i class="fa fa-refresh hover:animate-spin" aria-hidden="true"></i>
+                <i className="fa fa-refresh hover:animate-spin" aria-hidden="true"></i>
                 </span>
               </button>
             </div>

@@ -13,8 +13,7 @@ const VerifyEmail = ({ props }) => {
       <div className="  mx-4 overflow-x-hidden bg-white rounded-md">
         
         <div className="text-center mb-40 mt-40 text-xl font-bold animate-bounce">
-            
-            Please Verify Your Email If you haven't already!<br></br>
+            Please Verify Your Email If you have not done that already!<br></br>
             A verification email has been sent you your email!
         </div>
       </div>
