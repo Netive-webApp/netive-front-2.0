@@ -122,7 +122,7 @@ function getMyProfile(cookie) {
 }
 
 function getApps(cookie) {
-    const [data, setData] = useState(null)
+    const [dataa, setData] = useState(null)
     const [isLoading, setLoading] = useState(false)
 
     const requestOptions = {
@@ -138,7 +138,7 @@ function getApps(cookie) {
           })
       }, [])
 
-      return data
+      return dataa
 }
 
 function updateProfile(data) {

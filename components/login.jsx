@@ -28,20 +28,23 @@ const Login = () => {
       }).catch((error) => {alert.error("Bad/Wrong Credentials!");setSubmitting(false);console.log(error)});
       
   }
+
+  
+  
   function click(){
     window.open(google_login_url,'name')
   }
 
   return (
     <>
-      <div className="container mx-auto px-4 h-full mt-16 ">
-        <div className="flex content-center items-center justify-center h-full ">
+      
+        <div className="flex content-center items-center justify-center h-screen items-center" style={{'background': 'linear-gradient(0deg, #4e0a27, rgb(171 12 61))'}}>
           <div className="w-full lg:w-4/12 px-4">
-            <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg  border-0 bg-white p-3">
+            <div className="relative flex flex-col min-w-0 break-words w-full mb-6  rounded-lg  border-0 bg-white p-3">
               <div className="rounded-t mb-0 px-6 py-6">
                 <div className="text-center mb-3">
                   <h6 className="text-blueGray-500 text-sm font-bold">
-                    Sign in
+                    Sign In
                   </h6>
                 </div>
                 <div className="btn-wrapper text-center">
@@ -99,8 +102,9 @@ const Login = () => {
 
                   <div className="text-center mt-6">
                     <button
-                      className="btn-custom pt-2 pb-2 text-white w-full disabled:opacity-50"
+                      className="btn-custom pt-2 pb-2 text-white w-full disabled:opacity-50 "
                       disabled={submitting}
+                      style={{"background": "linear-gradient(0deg, #4e0a27, rgb(171 12 61))"}}
                       type="button"
                       onClick={onSubmit}
                     >
@@ -119,10 +123,10 @@ const Login = () => {
                   <small>Forgot password?</small>
                 </a>
                 </div>*/}
-                <div className="font-bold underline">
+                  <div className="text-center pb-6 font-bold underline ">
                   <Link href="/auth/register">
                     <a href="#pablo" className="text-blueGray-200">
-                      <small>Create new account</small>
+                      <small>Or Create An Account</small>
                     </a>
                   </Link>
                 </div>
@@ -130,7 +134,7 @@ const Login = () => {
             </div>
           </div>
         </div>
-      </div>
+      
     </>
   );
 };

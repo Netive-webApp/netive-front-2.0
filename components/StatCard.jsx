@@ -3,7 +3,7 @@ import React from 'react'
 const StatCard = (props) => {
   return (
     <>
-    <div className="relative flex flex-col min-w-0 break-words bg-white card-custom rounded mb-6 xl:mb-0 ">
+    <div className="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 ">
         <div className="flex-auto p-4">
           <div className="flex flex-wrap ">
             <div className="relative w-full pr-4 max-w-full flex-grow flex-1">
@@ -21,7 +21,7 @@ const StatCard = (props) => {
                   props.statIconColor
                 }
               >
-                <i className={"animate-bounce "+props.statIconName}></i>
+                <i className={props.statIconName}></i>
                 
               </div>
             </div>

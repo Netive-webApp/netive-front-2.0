@@ -3,20 +3,26 @@ import { useEffect } from "react/cjs/react.production.min";
 import { userService } from "../services/user.service";
 
 const AppTable = ({ props }) => {
-  var data = userService.getApps(props.cookie);
-  try {
-    console.log(data.sort(function(a, b) {
-      return b.created < a.created;
-    }));
-  } catch {
+  
+  var data = userService.getApps(props[0].cookie);
 
-  }
+
 
   return (
     <div className="max-w-screen-xl  mx-auto w-full">
       
       <div className="  mx-4 overflow-x-hidden bg-white rounded-md">
+        
+        
+        <div className="container mx-auto flex w-full justify-between		">
         <h1 className="mx-2 text-blueGray-700 text-Left text-4xl font-light my-6 hover:underline">#Your Apps</h1>
+              <button className="px-4 py-2 text-dark"  onClick={props[1]} >
+                
+                <span className="px-2 py-2 rounded-full border-2 ">
+                <i class="fa fa-refresh hover:animate-spin" aria-hidden="true"></i>
+                </span>
+              </button>
+            </div>
         <div className="overflow-x-scroll">
           <table className=" overflow-x-auto  w-full bg-white">
             <thead>
@@ -27,9 +33,7 @@ const AppTable = ({ props }) => {
               <th className="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                 APP NAME
               </th>
-              <th className="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                CREATED AT
-              </th>
+
               <th className="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                 STATUS
               </th>
@@ -55,15 +59,13 @@ const AppTable = ({ props }) => {
                     ></img>{" "}
                     <span className={"ml-3 font-bold"}>{app.appName}</span>
                   </td>
-                  <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                    {app.created.slice(0,19)}
-                  </td>
+
                   <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 font-bold">
                    {app.status=="ready" ? (
                       <>
-                      <a className="py-2 btn-custom downloadButton font-bold ml-4 inline rounded-sm text-sm"href={app.appZip} download>
+                      <a className="py-2 downloadButton font-bold ml-4 inline rounded-sm text-sm"href={app.appZip} download>
                       
-                      Ready
+                      Download
                       <span className="px-2"><i className="fa-solid fa-download"></i></span>
                       
                       </a>
@@ -75,8 +77,15 @@ const AppTable = ({ props }) => {
                    
                   </td>
                   <td className="border-t-0 px-6 align-middle font-bold border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                    {app.platform.toUpperCase()}
-                    <span className="px-2"><i className="fa-brands fa-android"></i></span>
+                    
+                    <span className="px-2">
+                    {" "}
+                    <img
+                      src="android.png"
+                      className="h-6 w-6 bg-white rounded-full "
+                      alt="..."
+                    ></img>{" "}
+                      </span>
                   </td>
                 </tr>
               ))}

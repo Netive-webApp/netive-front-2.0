@@ -1,0 +1,273 @@
+
+
+.create_app_form{
+    border:2px #f0f0f0 solid;
+    border-radius:10px;
+    width: 40rem;
+    padding:40px;
+    padding-top:20px;
+    margin: auto;
+}
+.form_step_title{
+    text-align: center;
+}
+.form_step_content_input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    padding: 20px;
+}
+.form_step_content_input > input {
+    padding:10px;
+    border: 2px solid #e8e8e8;
+    width: 100%;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+    
+}
+.form_step_content_input:hover > input {
+    padding:11px;
+    border: 2px solid #bfbfbf;
+}
+.img_input{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+
+.custom-file-upload {
+    display: inline-block;
+    border: 2px #bfbfbf dotted !important;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 20px;
+    padding: 6px 12px;
+    width: 14rem;
+    height: 14rem;
+    text-align: center;
+    cursor: pointer;
+}
+.ul-list{
+    list-style: none;
+    padding-top: 10px;
+    
+    
+    font-size: large;
+    margin: auto;
+}
+.ul-list > li > i {
+    color:green;
+}
+
+.input-file {
+    display: none;
+}
+
+
+
+.form_step{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .create_app_form{
+        width: 100%;
+    }
+    .img_input{
+        flex-direction: column;
+    }
+}
+
+.inputSelector{
+    padding:10px;
+    border: 2px dotted black;
+    border-radius:22px;
+}
+
+
+
+
+
+
+/* Radio */
+
+/* MAIN */
+/* =============================================== */
+.rad-label {
+    display: flex;
+    align-items: center;
+  
+    border-radius: 100px;
+    padding: 14px 16px;
+    margin: 10px 0;
+  
+    cursor: pointer;
+    transition: .3s;
+  }
+  
+  .rad-label:hover,
+  .rad-label:focus-within {
+    background: hsla(0, 0%, 80%, .14);
+  }
+  
+  .rad-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    z-index: -1;
+  }
+  
+  .rad-design {
+    width: 22px;
+    height: 22px;
+    border-radius: 100px;
+  
+    background: linear-gradient(to right bottom, hsl(154, 97%, 62%), hsl(225, 97%, 62%));
+    position: relative;
+  }
+  
+  .rad-design::before {
+    content: '';
+  
+    display: inline-block;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+  
+    background: hsl(0, 0%, 90%);
+    transform: scale(1.1);
+    transition: .3s;
+  }
+  
+  .rad-input:checked+.rad-design::before {
+    transform: scale(0);
+  }
+  
+  .rad-text {
+    color: hsl(0, 0%, 60%);
+    margin-left: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 900;
+  
+    transition: .3s;
+  }
+  
+  .rad-input:checked~.rad-text {
+    color: hsl(0, 0%, 40%);
+  }
+  
+  .blockquote{
+      color: #1f1f1f;
+      font-weight: bold;
+  }
+  
+  /* ABS */
+  /* ====================================================== */
+  .abs-site-link {
+    position: fixed;
+    bottom: 40px;
+    left: 20px;
+    color: hsla(0, 0%, 0%, .5);
+    font-size: 16px;
+  }
+
+
+    
+
+
+
+
+
+  
+
+
+  /* Checkbox */
+
+  .container {
+    max-width: 640px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 13px;
+}
+
+ul.ks-cboxtags {
+    list-style: none;
+    padding: 20px;
+}
+ul.ks-cboxtags li{
+  display: inline;
+}
+ul.ks-cboxtags li label{
+    display: inline-block;
+    background-color: rgba(255, 255, 255, .9);
+    border: 2px solid rgba(139, 139, 139, .3);
+    color: #adadad;
+    border-radius: 25px;
+    white-space: nowrap;
+    margin: 3px 0px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: all .2s;
+}
+
+ul.ks-cboxtags li label {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+ul.ks-cboxtags li label::before {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 12px;
+    padding: 2px 6px 2px 2px;
+    content: "\f067";
+    transition: transform .3s ease-in-out;
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
+    content: "\f00c";
+    transform: rotate(-360deg);
+    transition: transform .3s ease-in-out;
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:checked + label {
+    border: 2px solid #1bdbf8;
+    background-color: #12bbd4;
+    color: #fff;
+    transition: all .2s;
+}
+
+ul.ks-cboxtags li input[type="checkbox"] {
+  display: absolute;
+}
+ul.ks-cboxtags li input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+}
+ul.ks-cboxtags li input[type="checkbox"]:focus + label {
+  border: 2px solid #e9a1ff;
+}
+
+
+  
+

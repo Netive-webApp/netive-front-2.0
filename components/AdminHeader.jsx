@@ -21,45 +21,10 @@ const AdminHeader = ({ props }) => {
 
   return (
     <>
-      <div className="pb-48 " style={{marginBottom: "-8rem"}}>
+      <div className="pb-40 " style={{marginBottom: "-8rem"}}>
         
         <div className="max-w-screen-xl mx-auto">
         
-
-          <div className="pt-12 custom-flex justify-between">
-            <div className="custom-flex">
-            
-            { email_verified && 
-            <Link href="/createApp" className="m-2">
-              <button className="py-2 px-3 btn-custom text-blueGray font-bold ml-4 inline rounded-sm text-sm ">
-                <span className="mx-2">
-                  <i className="fa-solid fa-plus"></i>
-                </span>
-                Create New App
-              </button>
-            </Link>}
-      
-            <Link href="/">
-              <button className="py-2 px-3 btn-custom text-blueGray font-bold ml-4 inline rounded-sm text-sm">
-                <span className="mx-2">
-                  <i className="fa-solid fa-chart-line"></i>
-                </span>
-                Dashboard
-              </button>
-            </Link>
-            </div>
-            <div className="user-card">
-              <span className="mx-2  text-sm font-normal">
-                Welcome, {username}!
-                </span>
-              <div className="relative inline-block">
-                <img className="inline-block object-cover w-12 h-12 rounded-full" src="https://github.com/hungryChicken412/shellU/blob/main/Shellu_FrontEnd/shelluFront/src/assets/icons/userIcon.png?raw=true" alt="Profile image"/>
-                <span className="absolute bottom-0 right-0 inline-block w-3 h-3 bg-green-600 border-2 border-white rounded-full">
-                </span>
-              </div>
-            </div>
-            
-          </div>
 
           <div className="flex flex-wrap mt-14 justify-between">
             <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
@@ -67,7 +32,7 @@ const AdminHeader = ({ props }) => {
                 statSubtitle="TOTAL BUILDS"
                 statTitle={build}
                 statIconName="fa-solid fa-wrench"
-                statIconColor="bg-blue-500"
+                statIconColor="red-grad"
               />
             </div>
 
@@ -76,7 +41,7 @@ const AdminHeader = ({ props }) => {
                 statSubtitle="Ready"
                 statTitle={ready}
                 statIconName="fa-solid fa-circle-check"
-                statIconColor="bg-green-500"
+                statIconColor="red-grad"
               />
             </div>
 
@@ -85,7 +50,7 @@ const AdminHeader = ({ props }) => {
                 statSubtitle="Failed"
                 statTitle={failed}
                 statIconName="fa-solid fa-circle-exclamation"
-                statIconColor="bg-red-500"
+                statIconColor="red-grad"
               />
             </div>
 
@@ -94,7 +59,7 @@ const AdminHeader = ({ props }) => {
                 statSubtitle="Pending"
                 statTitle={pending}
                 statIconName="fa-solid fa-hourglass"
-                statIconColor="bg-yellow-500"
+                statIconColor="red-grad"
               />
             </div>
           </div>

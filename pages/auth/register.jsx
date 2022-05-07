@@ -6,10 +6,16 @@ import { useAlert } from "react-alert";
 import { useRouter } from "next/router";
 import {customHelpers} from "../../helpers/custom-helpers";
 import {useState} from 'react';
+import Navbar from "../../components/Navbar";
 
 
 export default function Register(props) {
-  const router = useRouter();
+  var router = useRouter();
+  if (props.isAuthenticated) {
+    router.push("/");
+    
+  }
+  
   const alert = useAlert();
   var username = createRef();
   var email = createRef();
@@ -55,8 +61,10 @@ export default function Register(props) {
   return (
     <>
 
-      <div className="container mx-auto px-4 h-full mt-16">
-        <div className="flex content-center items-center justify-center h-full">
+      <Navbar props={[props, 'none']}/>
+
+      
+        <div className="flex content-center items-center justify-center h-screen items-center" style={{'background': 'linear-gradient(0deg, #4e0a27, rgb(171 12 61))'}}>
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-white border-0">
               <div className="rounded-t mb-0 px-6 py-6">
@@ -166,6 +174,7 @@ export default function Register(props) {
                     <button
                       className="bg-black text-white btn-custom px-3 py-2 w-full disabled:opacity-50"
                       disabled={submitting}
+                      style={{"background": "linear-gradient(0deg, #4e0a27, rgb(171 12 61))"}}
                       type="submit"
                     >
                       {submitting &&
@@ -187,7 +196,7 @@ export default function Register(props) {
             </div>
           </div>
         </div>
-      </div>
+      
     </>
   );
 };

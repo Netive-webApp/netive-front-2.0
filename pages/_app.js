@@ -11,6 +11,8 @@ import userService from "../services/user.service";
 import { customHelpers } from "../helpers/custom-helpers";
 import Footer from "../components/Footer";
 
+import Sidebar from "../components/Sidebar";
+
 
 import { transitions, positions, Provider as AlertProvider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
@@ -39,18 +41,29 @@ function MyApp({ Component, pageProps }) {
     <>
     <Head>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+      <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;display=swap" rel="stylesheet"/>
+      <link href="https://fonts.googleapis.com/css2?family=Andika+New+Basic&amp;display=swap" rel="stylesheet"/>
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&amp;display=swap" rel="stylesheet"/>
     </Head>
       
       <AlertProvider template={AlertTemplate} {...options}>
-        <Component {...pageProps}  />
+        
+          <div>
+            
+            <Sidebar props={isAuthenticated}/>
+
+            <div className="mainContent">
+              <Component {...pageProps}  />
+              </div>  
+
+              
+            
+          </div>
+          
+          
       </AlertProvider>
       
-  <footer className="text-center text-white">
-    <div className="text-center text-gray-700 p-4">
-      Made with love @ 
-      <a className="text-gray-800 hover:underline" href="https://netive.tech/"> Netive</a>
-    </div>
-  </footer>
+
     </>
   );
 }

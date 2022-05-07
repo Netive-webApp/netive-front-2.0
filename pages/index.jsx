@@ -9,8 +9,10 @@ import VerifyEmail from "../components/VerifyEmail";
 
 
 
+
 export default function Home(props) {
   var router = useRouter();
+  var haventRecievedData = true;
   
   
   
@@ -22,30 +24,45 @@ export default function Home(props) {
     
     try {
       var email_verified = data[0]['email_confirmed'];
+      haventRecievedData = false;
     } catch {
       var email_verified = false;
+      haventRecievedData = true;
       //PASS;
     }
   }
+  
   var childProps = {
     props,
     data
   }
 
+  function refreshPage(){
+    router.reload();
+  }
+
+
   return (
     <div className="">
      
         <>
-          <Navbar />
-          <AdminHeader props={childProps}/>
-          {email_verified &&
-          <AppTable props={props} />
-          }
-          {!email_verified &&
-          <VerifyEmail props={props}/>
-          }
-          
-          
+            <Navbar props={[data, 'block']}/>
+            <AdminHeader props={childProps}/>
+
+            { haventRecievedData && 
+              <div className="loader">
+                <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-28.jpg" className="w-full h-10 w-10" />
+              </div>
+            }
+
+            
+            {email_verified && !haventRecievedData && 
+            <AppTable props={[props, refreshPage]} />
+            }
+
+            {!email_verified && !haventRecievedData && 
+            <VerifyEmail props={props}/>
+            }
         </>
       
     </div>
