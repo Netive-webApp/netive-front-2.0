@@ -162,18 +162,22 @@ export default function NewAppForm(props) {
       form_data.append("primaryColorDark", primaryColorDark);
       form_data.append("colorAccent", colorAccent);
       form_data.append("keystoreName", "keystore");
-      form_data.append("Name", Name.current.value);
+      form_data.append("Name", Name.current.value ? Name.current.value != "" : 'john doe');
       form_data.append("OrganizationUnit", "IT");
-      form_data.append("Organization", Organization.current.value);
+      form_data.append("Organization", Organization.current.value ? Organization.current.value != "" : 'company');
       form_data.append("City", "XX");
       form_data.append("State", "XX");
       form_data.append("CountryCode", "XX");
-      form_data.append("keystorePassword", keystorePassword.current.value);
-      form_data.append("keyAlias", keyAlias.current.value);
-      form_data.append("keyPassword", keystorePassword.current.value);
 
-      form_data.append("keystorePassword2", keystorePassword2.current.value);
-      form_data.append("ios_certificate_password", keyPassword.current.value);
+      
+      form_data.append("keystorePassword", keystorePassword.current.value ? keystorePassword.current.value != "" : "123456789");
+      
+      form_data.append("keyAlias", keyAlias.current.value ? keyAlias.current.value != "" : "alias");
+      form_data.append("keyPassword", keystorePassword.current.value ? keystorePassword.current.value != "" : "123456789");
+
+      form_data.append("keystorePassword2", keystorePassword2.current.value ? keystorePassword2.current.value != "" : "123456789");
+      form_data.append("ios_certificate_password", keyPassword.current.value ? keyPassword.current.value != "" : "123456789");
+      
       form_data.append("admob", admob.current.value);
       form_data.append("pushNoti", pushNoti.current.value);
       form_data.append("provisioningProfile", provisioningProfile.current.value);
@@ -185,6 +189,8 @@ export default function NewAppForm(props) {
       form_data.append("GSFile", GSFile.current.value);
       form_data.append("keystore_setting", keystore_setting);
       form_data.append("keystore", keystore.current.files[0]);
+
+      
       
 
 
@@ -209,6 +215,7 @@ export default function NewAppForm(props) {
         router.push("/");
         console.log(err);
       });
+      
       
       
 
