@@ -97,7 +97,8 @@ export default function NewAppForm(props) {
     pushNoti,
     admob_id,
     banner_id,
-    GSFile
+    GSFile,
+    GSFileAndroid
 
   }
   var step5_vars = {
@@ -620,7 +621,7 @@ export default function NewAppForm(props) {
                     />
                   </div>
                   <div>
-                      <div className="form_step_content_input">
+                      <div className="form_step_content_input iosInputs" style={{display: 'none'}}>
                           <div className="form_step_content_input_file">
                               <label htmlFor="GoogleServiceFile" id="GoogleServiceFileLabel" className="inputSelector">
                                   <i className="fa fa-cloud-upload"></i> Attach GoogleService-Info.plist

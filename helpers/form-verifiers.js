@@ -61,8 +61,13 @@ function verifyFormStep_4(data){
             return ["Please enter a Banner ID", false];
         }
 
-        if(data['GSFile'].current.value == ""){
-            return ["Please upload a Google Service File", false];
+        if (data['platform']['ios'] == true){
+            if(data['GSFile'].current.value == ""){
+                return ["Please upload a Google Service File", false];
+            }
+        }
+        if (data['GSFileAndroid'].current.Value == ""){
+            return ["Please upload an Android Google Service Json File", false];
         }
     }
     console.log(data['admob'].current.checked)
