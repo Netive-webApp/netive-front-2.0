@@ -47,6 +47,7 @@ export default function NewAppForm(props) {
   var icon = createRef();
   var keystore = createRef();
   var GSFile = createRef();
+  var GSFileAndroid = createRef();
   var package_name = createRef();
   var primaryColor = '';
   var primaryColorDark = '';
@@ -250,6 +251,10 @@ export default function NewAppForm(props) {
   function readGoogleService() {
     icon = document.getElementById("GoogleServiceFile").files[0];
     document.getElementById("GoogleServiceFileLabel").innerHTML = icon.name;
+  }
+  function readGoogleServiceAndroid() {
+    icon = document.getElementById("GoogleServiceFileAndroid").files[0];
+    document.getElementById("GoogleServiceFileLabelAndroid").innerHTML = icon.name;
   }
   function readCert() {
     icon = document.getElementById("certificateFile").files[0];
@@ -627,6 +632,19 @@ export default function NewAppForm(props) {
                               id="GoogleServiceFile"
                               accept=".plist"
                               ref={GSFile}
+                          />
+                          </div>
+                          <div className="form_step_content_input_file">
+                              <label htmlFor="GoogleServiceFile" id="GoogleServiceFileLabelAndroid" className="inputSelector">
+                                  <i className="fa fa-cloud-upload"></i> Attach GoogleService-Info.Json
+                              </label>
+                              <input
+                              type="file"
+                              className="input-file"
+                              onChange={readGoogleServiceAndroid}
+                              id="GoogleServiceFileAndroid"
+                              accept=".plist"
+                              ref={GSFileAndroid}
                           />
                           </div>
                       </div>
