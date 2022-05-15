@@ -471,7 +471,7 @@ export default function NewAppForm(props) {
                     <ul className="ks-cboxtags">
                       <p className="text-center text-xl font-bold">Select Platform</p>
                       <li><input type="checkbox" id="androidApp" value="android" onChange={platformChoose} defaultChecked /><label htmlFor="androidApp">Android</label></li>
-                      <li><input type="checkbox" id="iOSApp" value="ioss"  onChange={platformChoose} disabled /><label htmlFor="iOSApp">iOS (not available)</label></li>
+                      <li><input type="checkbox" id="iOSApp" value="ioss"  onChange={platformChoose} disabled/><label htmlFor="iOSApp">iOS (not available)</label></li>
                     </ul>
                   </div>
                 </div>
@@ -631,12 +631,11 @@ export default function NewAppForm(props) {
                               className="input-file"
                               onChange={readGoogleService}
                               id="GoogleServiceFile"
-                              accept=".plist"
                               ref={GSFile}
                           />
                           </div>
-                          <div className="form_step_content_input_file">
-                              <label htmlFor="GoogleServiceFile" id="GoogleServiceFileLabelAndroid" className="inputSelector">
+                          <div className="form_step_content_input_file pt-4">
+                              <label htmlFor="GoogleServiceFileAndroid" id="GoogleServiceFileLabelAndroid" className="inputSelector">
                                   <i className="fa fa-cloud-upload"></i> Attach GoogleService-Info.Json
                               </label>
                               <input
