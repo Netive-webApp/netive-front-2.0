@@ -597,8 +597,8 @@ export default function NewAppForm(props) {
             <div className="form_step_content">
                 <div className="containerr">
                     <ul className="ks-cboxtags">
-                      <li><input type="checkbox" id="admobCheck" value="admob" onChange={doss} ref={admob} disabled/><label htmlFor="admobCheck">Admob (coming soon)</label></li>
-                      <li><input type="checkbox" id="firebaseCheck" value="firebasePush"  onChange={doss} ref={pushNoti} disabled /><label htmlFor="firebaseCheck">Firebase Push Notification Service (coming soon)</label></li>
+                      <li><input type="checkbox" id="admobCheck" value="admob" onChange={doss} ref={admob}/><label htmlFor="admobCheck">Admob (coming soon)</label></li>
+                      <li><input type="checkbox" id="firebaseCheck" value="firebasePush"  onChange={doss} ref={pushNoti} /><label htmlFor="firebaseCheck">Firebase Push Notification Service (coming soon)</label></li>
                     </ul>
                   </div>
 
