@@ -621,8 +621,8 @@ export default function NewAppForm(props) {
                     />
                   </div>
                   <div>
-                      <div className="form_step_content_input iosInputs" style={{display: 'none'}}>
-                          <div className="form_step_content_input_file">
+                      <div className="form_step_content_input">
+                          <div className="form_step_content_input_file iosInputs" style={{display: 'none'}}>
                               <label htmlFor="GoogleServiceFile" id="GoogleServiceFileLabel" className="inputSelector">
                                   <i className="fa fa-cloud-upload"></i> Attach GoogleService-Info.plist
                               </label>
