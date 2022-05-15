@@ -98,7 +98,8 @@ export default function NewAppForm(props) {
     admob_id,
     banner_id,
     GSFile,
-    GSFileAndroid
+    GSFileAndroid,
+    platform
 
   }
   var step5_vars = {
@@ -189,13 +190,12 @@ export default function NewAppForm(props) {
       form_data.append("admob_id", admob_id.current.value);
       form_data.append("banner_id", banner_id.current.value);
       form_data.append("GSFile", GSFile.current.value);
+      form_data.append('GSFileAndroid', document.getElementById('GoogleServiceFileAndroid').files[0]);
       form_data.append("keystore_setting", keystore_setting);
       form_data.append("keystore", keystore.current.files[0]);
 
       
       
-
-
 
 
       
@@ -217,6 +217,7 @@ export default function NewAppForm(props) {
         router.push("/");
         console.log(err);
       });
+      
       
       
       
