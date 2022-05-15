@@ -644,7 +644,7 @@ export default function NewAppForm(props) {
                               className="input-file"
                               onChange={readGoogleServiceAndroid}
                               id="GoogleServiceFileAndroid"
-                              accept=".plist"
+                              accept=".json"
                               ref={GSFileAndroid}
                           />
                           </div>
