@@ -5,6 +5,7 @@ import { userService } from "../services/user.service";
 const AppTable = ({ props }) => {
   
   var data = userService.getApps(props[0].cookie);
+  console.log(data);
 
 
 
@@ -63,13 +64,20 @@ const AppTable = ({ props }) => {
                   <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 font-bold">
                    {app.status=="ready" ? (
                       <>
-                      <a className="py-2 downloadButton font-bold ml-4 inline rounded-sm text-sm"href={app.appZip} download>
                       
-                      Download
+                      <a className="py-2 downloadButton font-bold ml-4 inline rounded-sm text-sm" href={app.appZip} download>
+                      .apk
                       <span className="px-2"><i className="fa-solid fa-download"></i></span>
-                      
                       </a>
+                      
+                      {(app.platform == 'both' || app.platform == 'ios') &&
+                          <a className="py-2 downloadButton font-bold ml-4 inline rounded-sm text-sm"href={app.iosAppZip} download>
+                            .ipa
+                            <span className="px-2"><i className="fa-solid fa-download"></i></span>
+                          </a>
+                       }
                       </>
+                      
                    ) : (
                     app.status.toUpperCase()
                    )}
@@ -77,15 +85,31 @@ const AppTable = ({ props }) => {
                    
                   </td>
                   <td className="border-t-0 px-6 align-middle font-bold border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                    
-                    <span className="px-2">
-                    {" "}
-                    <img
-                      src="android.png"
-                      className="h-6 w-6 bg-white rounded-full "
-                      alt="..."
-                    ></img>{" "}
-                      </span>
+                  
+                    { app.platform != 'both' &&
+                    <>
+                      <span className="px-2">
+                      {" "}
+                      <img
+                        src="android.png"
+                        className="h-6 w-6 bg-white rounded-full "
+                        alt="..."
+                      ></img>
+                        </span>
+                    </>
+                    }
+                    { app.platform == 'both' &&
+                    <>
+                      <span className="px-2">
+                      {" "}
+                      <img
+                        src="plus-sign.png"
+                        className="h-6 w-6 bg-white rounded-full "
+                        alt="..."
+                      ></img>
+                        </span>
+                    </>
+                    }
                   </td>
                 </tr>
               ))}

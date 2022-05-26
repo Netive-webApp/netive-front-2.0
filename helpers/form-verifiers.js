@@ -15,8 +15,8 @@ function verifyFormStep_1(data){
     }
     /* compare if url is valid */
     if (data['url'].current.value == "" || !validateUrl(data['url'].current.value)){
-        console.log("ghere")
-        console.log(validateUrl(data['url'].current.value))
+
+
         return ["Please enter a valid url", false];
     }
     if (data['platform']['android'] == false && data['platform']['ios'] == false){
@@ -46,13 +46,13 @@ function verifyFormStep_2(data){
 function verifyFormStep_3(data){
     let msg = ""
     let success = true;
-    console.log(data);
+
     return ["", true];
 }
 function verifyFormStep_4(data){
     let msg = ""
     let success = true;
-    console.log(data['banner_id'].current.value);
+
     if (data['admob'].current.checked || data['pushNoti'].current.checked){
         if (data['admob_id'].current.value == ""){
             return ["Please enter an AdMob ID", false];
@@ -70,7 +70,7 @@ function verifyFormStep_4(data){
             return ["Please upload an Android Google Service Json File", false];
         }
     }
-    console.log(data['admob'].current.checked)
+
     return ["", true];
 }
 function verifyFormStep_5(data){
@@ -81,6 +81,19 @@ function verifyFormStep_5(data){
 function verifyFormStep_6(data){
     let msg = ""
     let success = true;
+
+    console.log(data['platform']['ios'])
+    if (data['platform']['ios'] == true){
+        if (data['certificate'].current.value == ""){
+            return ["Please attach your IOS certificate", false];
+        }
+        if (data['provisioningProfile'].current.value == ""){
+            return ["Please attach your provisioning profile", false];
+        }
+        if (data['keyPassword'].current.value == ""){
+            return ["Please enter Your password for iOS certificate", false];
+        }
+    }
     if (data['keystore_setting'] == "new"){
         if (data['Name'].current.value == ""){
             return ["Please enter Your name", false];
@@ -99,26 +112,17 @@ function verifyFormStep_6(data){
         }
 
     }
+    console.log(data['keystore_setting'])
     if (data['keystore_setting'] == "have"){
         if (data['keystore'].current.value == ""){
-            return ["Please enter Your keystore", false];
+            return ["Please attach Your keystore file", false];
         }
         if (data['keystorePassword2'].current.value == ""){
-            console.log(data['keystorePassword2'].current.value);
+
             return ["Please enter Your keystore password", false];
         }
     }
-    if (data['platform']['ios'] == true){
-        if (data['certificate'].current.value == ""){
-            return ["Please enter Your certificate", false];
-        }
-        if (data['provisioningProfile'].current.value == ""){
-            return ["Please enter Your provisioning profile", false];
-        }
-        if (data['keyPassword'].current.value == ""){
-            return ["Please enter Your key password for iOS", false];
-        }
-    }
+    
     return [msg, success];
 }
 
@@ -126,7 +130,7 @@ function validateUrl(url) {
     try {
         url = new URL(url);
       } catch (_) {
-        console.log(_)
+
         return false;  
       }
       return true;

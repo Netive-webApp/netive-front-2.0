@@ -165,28 +165,32 @@ export default function NewAppForm(props) {
       form_data.append("primaryColorDark", primaryColorDark);
       form_data.append("colorAccent", colorAccent);
       form_data.append("keystoreName", "keystore");
-      form_data.append("Name", Name.current.value ? Name.current.value != "" : 'john doe');
+      form_data.append("Name", Name.current.value);
       form_data.append("OrganizationUnit", "IT");
-      form_data.append("Organization", Organization.current.value ? Organization.current.value != "" : 'company');
+      form_data.append("Organization", Organization.current.value);
       form_data.append("City", "XX");
       form_data.append("State", "XX");
       form_data.append("CountryCode", "XX");
 
       
-      form_data.append("keystorePassword", keystorePassword.current.value ? keystorePassword.current.value != "" : "123456789");
+      form_data.append("keystorePassword", keystorePassword.current.value);
       
-      form_data.append("keyAlias", keyAlias.current.value ? keyAlias.current.value != "" : "alias");
-      form_data.append("keyPassword", keystorePassword.current.value ? keystorePassword.current.value != "" : "123456789");
+      form_data.append("keyAlias", keyAlias.current.value);
+      form_data.append("keyPassword", keystorePassword.current.value);
 
-      form_data.append("keystorePassword2", keystorePassword2.current.value ? keystorePassword2.current.value != "" : "123456789");
-      form_data.append("ios_certificate_password", keyPassword.current.value ? keyPassword.current.value != "" : "123456789");
+      form_data.append("keystorePassword2", keystorePassword2.current.value);
+      form_data.append("ios_certificate_password", keyPassword.current.value);
       
-      form_data.append("admob", admob.current.value);
-      form_data.append("pushNoti", pushNoti.current.value);
-      form_data.append("provisioningProfile", provisioningProfile.current.value);
-      form_data.append("certificate", certificate.current.value);
+      form_data.append("admob", document.getElementById('admobCheck').checked);
+      form_data.append("pushNoti", document.getElementById('firebaseCheck').checked);
+
+      form_data.append("provisioningProfile", document.getElementById('ppFile').files[0]);
+      form_data.append("certificate", document.getElementById('certificateFile').files[0]);
+
       form_data.append('splashScreenType', splashScreenType);
-      form_data.append("platform", platform);
+      form_data.append("platform", 'android');
+      form_data.append("androidChoose", platform['android']);
+      form_data.append("iosChoose", platform['ios']);
       form_data.append("admob_id", admob_id.current.value);
       form_data.append("banner_id", banner_id.current.value);
       form_data.append("GSFile", GSFile.current.value);
@@ -196,32 +200,36 @@ export default function NewAppForm(props) {
 
       
       
+      
+      
+
+      
+      
 
 
       
       
-      submitting = setSubmitting(true);
+      //submitting = setSubmitting(true);
+      console.log(form_data.values);
+      
       axios
       .post(
-        "https://netive-backend.herokuapp.com/api-info/register/app/",
+        "http://localhost:8000/api-info/register/app/", //https://netive-backend.herokuapp.com/api-info/register/app/
         form_data,
         { headers: { Authorization: `Token ${cookie}` } }
       )
       .then((res) => {
         console.log(res);
-        router.push("/");
+        //router.push("/");
       })
       .catch((err) => {
         console.log("Error! Creating App!");
         alert.error("Error! Creating App! Please Contact Support if the error persists.");
-        router.push("/");
+        //router.push("/");
         console.log(err);
       });
       
       
-      
-      
-
       alert.success('App Registration Successful! Please wait.');
     }
 
@@ -261,7 +269,6 @@ export default function NewAppForm(props) {
   function readCert() {
     icon = document.getElementById("certificateFile").files[0];
     document.getElementById("certificateFileLabel").innerHTML = icon.name;
-    console.log('isd')
   }
   function readPP() {
     icon = document.getElementById("ppFile").files[0];
@@ -289,7 +296,6 @@ export default function NewAppForm(props) {
         document.getElementById("section-6").style.display = "none";
         document.getElementById("submit_button").style.display = "none";
         var s = "section-"+nextState;
-        console.log(s)
         document.getElementById(s).style.display = "block";
       } else if (nextState == 7){
         document.getElementById("section-1").style.display = "block";
@@ -322,7 +328,6 @@ export default function NewAppForm(props) {
     document.getElementById("section-6").style.display = "none";
     document.getElementById("submit_button").style.display = "none";
     var s = "section-"+nextState;
-    console.log(s)
     document.getElementById(s).style.display = "block";
   }
   function splashScreenNone(){
@@ -350,7 +355,7 @@ export default function NewAppForm(props) {
     document.getElementById("newKeystore").style.display = "block"
     document.getElementById('haveKeystore').style.display = "none"
     document.getElementById('unsignedKeystore').style.display = "none"
-    keystore_setting = 'new'
+    setKeystoreSetting('new')
   }
   function haveKeystore(){
     document.getElementById("newKeystore").style.display = "none"
@@ -367,31 +372,33 @@ export default function NewAppForm(props) {
   function platformChoose(){
     var android = document.getElementById("androidApp");
     var ios = document.getElementById("iOSApp");
+    
+    
+    
+    platform['android'] = android.checked;
+    platform['ios'] = ios.checked;
+    console.log(platform)   
+    
 
-    if (android.checked == true){
-      platform['android'] = true;
+    if ( platform['android']){
       let q = document.getElementsByClassName("android_inputs")
       for (var i = 0; i < q.length; i++) {
         q[i].style.display = "block";
-      
       }
     } else {
-      platform['android'] = false;
       let q = document.getElementsByClassName("android_inputs")
       for (var i = 0; i < q.length; i++) {
         q[i].style.display = "none";
       }
     }
+    console.log("hdsbbsd");
 
-    if (ios.checked == true){
-      platform['ios'] = true;
+    if (platform['ios']){
       let q = document.getElementsByClassName("iosInputs")
       for (var i = 0; i < q.length; i++) {
         q[i].style.display = "block";
-      
       }
     } else {
-      platform['ios'] = false;
       let q = document.getElementsByClassName("iosInputs")
       for (var i = 0; i < q.length; i++) {
         q[i].style.display = "none";
@@ -471,8 +478,8 @@ export default function NewAppForm(props) {
                 <div className="containerr">
                     <ul className="ks-cboxtags">
                       <p className="text-center text-xl font-bold">Select Platform</p>
-                      <li><input type="checkbox" id="androidApp" value="android" onChange={platformChoose} defaultChecked /><label htmlFor="androidApp">Android</label></li>
-                      <li><input type="checkbox" id="iOSApp" value="ioss"  onChange={platformChoose} disabled/><label htmlFor="iOSApp">iOS (not available)</label></li>
+                      <li><input type="checkbox" id="androidApp" value="android" onChange={platformChoose} disabled defaultChecked /><label htmlFor="androidApp">Android</label></li>
+                      <li><input type="checkbox" id="iOSApp" value="ioss"  onChange={platformChoose}/><label htmlFor="iOSApp">iOS (alpha)</label></li>
                     </ul>
                   </div>
                 </div>
@@ -845,6 +852,7 @@ export default function NewAppForm(props) {
                               type="file"
                               className="input-file"
                               onChange={readCert}
+                              //accept='.p12'
                               id="certificateFile"
                               ref={certificate}
                               
@@ -860,6 +868,7 @@ export default function NewAppForm(props) {
                               type="file"
                               className="input-file"
                               onChange={readPP}
+                              //accept='.mobileprovision'
                               id="ppFile"
                               ref={provisioningProfile}
                               
@@ -947,5 +956,4 @@ export default function NewAppForm(props) {
             </div>
 
 */
-
 
