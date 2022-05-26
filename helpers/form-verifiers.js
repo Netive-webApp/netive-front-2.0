@@ -52,6 +52,7 @@ function verifyFormStep_3(data){
 function verifyFormStep_4(data){
     let msg = ""
     let success = true;
+    
 
     if (data['admob'].current.checked || data['pushNoti'].current.checked){
         if (data['admob_id'].current.value == ""){

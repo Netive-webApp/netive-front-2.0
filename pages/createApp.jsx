@@ -74,9 +74,11 @@ export default function NewAppForm(props) {
   var [keystore_setting, setKeystoreSetting] = useState('new');
 
 
-  var platform = {
-    'android': true,
-    'ios': false
+  let [androidP , setAndroid] = useState(true);
+  let [iosP, setIos] = useState(false);
+  let platform = {
+    'android': androidP,
+    'ios': iosP
   }
 
   var step1_vars = {
@@ -209,23 +211,23 @@ export default function NewAppForm(props) {
 
       
       
-      //submitting = setSubmitting(true);
+      submitting = setSubmitting(true);
       console.log(form_data.values);
       
       axios
       .post(
-        "http://localhost:8000/api-info/register/app/", //https://netive-backend.herokuapp.com/api-info/register/app/
+        "https://netive-backend.herokuapp.com/api-info/register/app/", //https://netive-backend.herokuapp.com/api-info/register/app/
         form_data,
         { headers: { Authorization: `Token ${cookie}` } }
       )
       .then((res) => {
         console.log(res);
-        //router.push("/");
+        router.push("/");
       })
       .catch((err) => {
         console.log("Error! Creating App!");
         alert.error("Error! Creating App! Please Contact Support if the error persists.");
-        //router.push("/");
+        router.push("/");
         console.log(err);
       });
       
@@ -275,6 +277,7 @@ export default function NewAppForm(props) {
     document.getElementById("ppFileLabel").innerHTML = icon.name;
   }
   function formStepForward(){
+    console.log(platform)
     var nextState = formState + 1;
     let verification = verifiers[formState-1](steps[formState-1]);
     if (verification[1]) {
@@ -377,6 +380,8 @@ export default function NewAppForm(props) {
     
     platform['android'] = android.checked;
     platform['ios'] = ios.checked;
+    setAndroid(android.checked)
+    setIos(ios.checked)
     console.log(platform)   
     
 
@@ -852,7 +857,7 @@ export default function NewAppForm(props) {
                               type="file"
                               className="input-file"
                               onChange={readCert}
-                              //accept='.p12'
+                              accept='.p12'
                               id="certificateFile"
                               ref={certificate}
                               
@@ -868,7 +873,7 @@ export default function NewAppForm(props) {
                               type="file"
                               className="input-file"
                               onChange={readPP}
-                              //accept='.mobileprovision'
+                              accept='.mobileprovision'
                               id="ppFile"
                               ref={provisioningProfile}
                               
