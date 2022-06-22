@@ -484,7 +484,7 @@ export default function NewAppForm(props) {
                     <ul className="ks-cboxtags">
                       <p className="text-center text-xl font-bold">Select Platform</p>
                       <li><input type="checkbox" id="androidApp" value="android" onChange={platformChoose} disabled defaultChecked /><label htmlFor="androidApp">Android</label></li>
-                      <li><input type="checkbox" id="iOSApp" value="ioss"  onChange={platformChoose}/><label htmlFor="iOSApp">iOS (alpha)</label></li>
+                      <li><input type="checkbox" id="iOSApp" value="ioss"  onChange={platformChoose} disabled/><label htmlFor="iOSApp">iOS (alpha)</label></li>
                     </ul>
                   </div>
                 </div>
