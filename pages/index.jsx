@@ -48,6 +48,8 @@ export default function Home(props) {
         <>
             <Navbar props={[data, 'block']}/>
             <AdminHeader props={childProps}/>
+              
+              <h2 className = "text-center text-bold font-2xl"> Site is currently under maintenance</h2>
 
             { haventRecievedData && 
               <div className="loader">
