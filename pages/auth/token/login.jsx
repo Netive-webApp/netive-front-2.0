@@ -15,7 +15,7 @@ export default function TokenVerification() {
     try{
         if (!isAuthenticated){
 
-            var token = router.asPath.split('?')[1].split("=")[0]
+            var token = router.asPath.split('token=')[1].split("=")[0]
             
 
         try{
